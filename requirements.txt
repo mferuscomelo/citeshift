@@ -1,0 +1,7 @@
+apify
+apify-client
+google-genai
+httpx
+pydantic
+python-dotenv
+tldextract
