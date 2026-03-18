@@ -112,8 +112,8 @@ Our roadmap includes:
 This project would not have been possible without the support, feedback, and insights from GenAI Zurich mentors and the Apify team.
 
 - Benjamin Fuchs (AI Automation Specialist)
-- Dusan Vystrcil (AI Product Manager @ Apify)
-- Ales Wilk and Kateryna Shvets (Marketing @ Apify)
+- Dušan Vystrčil (AI Product Manager @ Apify)
+- Aleš Wilk and Kateryna Shvets (Marketing @ Apify)
 - Pascal Vetter (AI Ecosystem Enabler @ AI Startup Center Zürich)
 
 ## Get Started
