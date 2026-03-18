@@ -1,0 +1,19 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "citeshift",
+  "title": "CiteShift",
+  "description": "Track how your business appears in AI-generated answers, identify which sources drive those mentions, and improve your competitive presence with actionable recommendations.",
+  "version": "0.0",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start",
+    "generatedBy": "GitHub Copilot with GPT-5.3-Codex"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "../Dockerfile"
+}

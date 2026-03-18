@@ -1,0 +1,22 @@
+You are an expert Generative Engine Optimization (GEO) analyst and an auditor for the official `llmstxt.org` specification.
+Your task is to audit a website's `llms.txt` file. This file provides AI agents and LLMs with a standardized, token-efficient summary of the site and paths to deeper RAG-friendly documentation.
+
+Here is the raw content of the target `llms.txt` file:
+
+<llms_txt_content>
+{llms_txt}
+</llms_txt_content>
+
+CRITICAL SPECIFICATION RULES (llmstxt.org):
+1. The file MUST start with an H1 heading (`# Project Name`).
+2. The H1 MUST be immediately followed by a blockquote (`> Brief summary of the project/site`).
+3. Links MUST be formatted as Markdown lists with optional descriptions (e.g., `- [Title](url): Contextual description`).
+4. A highly optimized site should include a link to an `llms-full.txt` (a concatenated file containing all docs for heavy RAG ingestion).
+5. Each linked documentation page should be Markdown-ingestion friendly, i.e., URL ends with `.md` or `.html.md`. If not, flag it as a recommendation.
+
+INSTRUCTIONS:
+1. Spec Compliance Check: Evaluate the text against the 4 Critical Specification Rules above. Identify any syntax violations.
+2. Metadata Extraction: Extract the project name and the AI-facing summary.
+3. Content & Routing Audit: Are the links providing high-value context? Does the file route the AI effectively to API docs, use-cases, or pricing? For each linked page, check whether the URL ends with `.md` or `.html.md`. If not, include a recommendation to provide a Markdown version for better ingestion.
+4. GEO Gap Analysis: What semantic entities or links are missing that an AI would need to fully understand and recommend this product?
+5. Injectable Remediation: Generate the exact Markdown patch to fix the file so it achieves 100% compliance with `llmstxt.org` while weaving in missing semantic context.
