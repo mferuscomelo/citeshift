@@ -24,7 +24,27 @@ If your company isn't mentioned when a user asks an AI, you no longer exist in t
 
 CiteShift helps companies understand, measure, and improve how they appear in AI-generated answers. Instead of tracking outdated keyword positions, CiteShift introduces the Visibility Score: a unified, cross-engine metric that measures exactly how prominently your brand appears across the AI ecosystem. 
 
+![CiteShift dashboard](assets/screenshots/dashboard.png)
+
 It provides competitive intelligence, source-level tracking, and actionable recommendations to help you engineer your presence in the LLMs of tomorrow.
+
+### Product Walkthrough
+
+The **Citations** view breaks down exactly which domains are cited in AI answers and classifies them as Owned, Operated, or Earned sources, so teams can understand where authority is really coming from.
+
+![CiteShift citations](assets/screenshots/citations.png)
+
+The **History** view turns weekly scans into a longitudinal record of ranking movement and score shifts, helping teams measure the impact of content and GEO changes.
+
+![CiteShift history](assets/screenshots/history.png)
+
+The **llms.txt Analysis** view evaluates LLM-readiness directly, highlights context gaps, and generates prioritized recommendations to improve machine-readable brand context.
+
+![CiteShift llms.txt analysis](assets/screenshots/llms-txt.png)
+
+The **Share of Voice** view compares your visibility with direct competitors and shows trend lines over time, making it easy to spot who is gaining AI mindshare in your category.
+
+![CiteShift share of voice](assets/screenshots/share-of-voice.png)
 
 ### How It Works
 
@@ -34,8 +54,6 @@ It provides competitive intelligence, source-level tracking, and actionable reco
 4. **Scoring:** CiteShift calculates the Visibility Score for you and your competitors.
 5. **Source & llms.txt Analysis:** The system maps the exact URLs driving the AI answers and checks your domain’s `/llms.txt` file for LLM-readiness.
 6. **Insights Delivery:** A structured report and visual dashboard present the intelligence, showing exactly where you are losing out and how to fix it.
-
-<!-- TODO: Insert screenshot of dashboard -->
 
 ### Technical Architecture
 
@@ -97,3 +115,57 @@ This project would not have been possible without the support, feedback, and ins
 - Dusan Vystrcil (AI Product Manager @ Apify)
 - Ales Wilk and Kateryna Shvets (Marketing @ Apify)
 - Pascal Vetter (AI Ecosystem Enabler @ AI Startup Center Zürich)
+
+## Get Started
+
+Run CiteShift locally in a few steps.
+
+### 1. Install dependencies
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 2. Configure environment variables
+
+Copy the example file and fill in your API credentials:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and set your values:
+
+```env
+APIFY_TOKEN=your_apify_token
+GEMINI_API_KEY=your_gemini_api_key
+USE_CACHE=false
+```
+
+### 3. Change the actor input
+
+Edit [input.json](input.json) with your own target domain and query set:
+
+```json
+{
+	"url": "https://your-domain.com/",
+	"search_queries": [
+		"best tools in your category",
+		"top alternatives for your product type"
+	]
+}
+```
+
+### 4. Run the actor locally
+
+```bash
+apify run --input-file input.json
+```
+
+### 5. Review output
+
+After a run, the actor writes the final analysis to [report.json](report.json).
+
+This repository already includes a test report at [report.json](report.json), generated from the sample queries in [input.json](input.json), so you can review the expected output structure immediately.
