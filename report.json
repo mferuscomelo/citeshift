@@ -1,54 +1,4160 @@
 {
+  "business_profile": {
+    "business_name": "Locke Am Platz",
+    "business_type": "hotel",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "traveler_personas": [
+      "business travelers",
+      "couples",
+      "long-term stayers",
+      "leisure travelers"
+    ],
+    "signature_offers": [
+      "aparthotel accommodations",
+      "flexible early check-in options",
+      "streamlined online check-in"
+    ],
+    "strengths": [
+      "prime location near Lake Zurich",
+      "flexible apartment-style living",
+      "convenient digital check-in procedures"
+    ],
+    "gaps": [
+      "lack of specific onsite dining details",
+      "unspecified fitness or wellness facilities",
+      "missing information on meeting or coworking spaces"
+    ]
+  },
   "llms_txt_analysis": {
     "summary": {
-      "name": "Apify",
-      "description": "A comprehensive cloud platform for web scraping, data extraction, and process automation, offering 10,000+ serverless Actors for structured data collection at scale.",
-      "urls": [
-        "https://apify.com",
-        "https://docs.apify.com"
-      ]
+      "name": "unknown",
+      "description": "No llms.txt content available.",
+      "urls": []
     },
-    "score": 85,
+    "score": 0,
     "gap_analysis": {
       "gaps": [
-        "Inconsistent file extensions: Many primary platform links (e.g., /store, /actors) do not resolve to explicitly Markdown-friendly endpoints, which can result in verbose HTML ingestion.",
-        "Lack of a dedicated 'Quickstart' or 'Getting Started' summary section for developer-centric RAG ingestion.",
-        "Some marketing-heavy URLs may provide unnecessary HTML overhead that is not optimized for token-efficient RAG retrieval."
+        "llms.txt file not found or empty"
       ],
       "recommendations": [
-        "Configure the server to support 'Accept: text/markdown' for all URL paths to allow for cleaner content negotiation without needing to append extensions.",
-        "Add a dedicated 'Quickstart' section under the summary block to provide immediate code-snippet access for LLM agents.",
-        "If server-side content negotiation is not feasible, ensure that key marketing pages provide an alternative URL with a .md suffix to facilitate clean ingestion.",
-        "Maintain the existing high-quality documentation links (already utilizing .md) as the primary knowledge source."
+        "Create a compliant llms.txt file with product summary and key documentation links"
       ]
     }
   },
   "sources_analysis": {
-    "mentions_by_domain": [],
-    "sources": []
+    "mentions_by_domain": [
+      {
+        "domain": "tripadvisor.com",
+        "mentions": 28
+      },
+      {
+        "domain": "expedia.com",
+        "mentions": 20
+      },
+      {
+        "domain": "booking.com",
+        "mentions": 20
+      },
+      {
+        "domain": "google.com",
+        "mentions": 16
+      },
+      {
+        "domain": "hotels.com",
+        "mentions": 13
+      },
+      {
+        "domain": "zuerich.com",
+        "mentions": 12
+      },
+      {
+        "domain": "acasasuites.com",
+        "mentions": 8
+      },
+      {
+        "domain": "cozycozy.com",
+        "mentions": 8
+      },
+      {
+        "domain": "lockeliving.com",
+        "mentions": 7
+      },
+      {
+        "domain": "youtube.com",
+        "mentions": 7
+      },
+      {
+        "domain": "wikipedia.org",
+        "mentions": 6
+      },
+      {
+        "domain": "facebook.com",
+        "mentions": 6
+      },
+      {
+        "domain": "overtheplanet.com",
+        "mentions": 5
+      },
+      {
+        "domain": "silverdoor.com",
+        "mentions": 5
+      },
+      {
+        "domain": "thewanderbug.com",
+        "mentions": 5
+      },
+      {
+        "domain": "aparthotelshq.com",
+        "mentions": 5
+      },
+      {
+        "domain": "theblueground.com",
+        "mentions": 5
+      },
+      {
+        "domain": "ricksteves.com",
+        "mentions": 5
+      },
+      {
+        "domain": "glandon-apartments.ch",
+        "mentions": 5
+      },
+      {
+        "domain": "viator.com",
+        "mentions": 5
+      },
+      {
+        "domain": "agoda.com",
+        "mentions": 4
+      },
+      {
+        "domain": "hotels-zurich.org",
+        "mentions": 4
+      },
+      {
+        "domain": "myswissalps.com",
+        "mentions": 4
+      },
+      {
+        "domain": "radissonhotels.com",
+        "mentions": 4
+      },
+      {
+        "domain": "airbnb.com",
+        "mentions": 4
+      },
+      {
+        "domain": "reddit.com",
+        "mentions": 4
+      },
+      {
+        "domain": "ema-house.ch",
+        "mentions": 4
+      },
+      {
+        "domain": "trip.com",
+        "mentions": 4
+      },
+      {
+        "domain": "accor.com",
+        "mentions": 4
+      },
+      {
+        "domain": "fredhotels.ch",
+        "mentions": 4
+      },
+      {
+        "domain": "marriott.com",
+        "mentions": 4
+      },
+      {
+        "domain": "trivago.com",
+        "mentions": 4
+      },
+      {
+        "domain": "foratravel.com",
+        "mentions": 3
+      },
+      {
+        "domain": "swissactivities.com",
+        "mentions": 3
+      },
+      {
+        "domain": "luxuryhotel.guru",
+        "mentions": 3
+      },
+      {
+        "domain": "livelybylaura.com",
+        "mentions": 3
+      },
+      {
+        "domain": "getyourguide.com",
+        "mentions": 3
+      },
+      {
+        "domain": "maddysavenue.com",
+        "mentions": 3
+      },
+      {
+        "domain": "planetofhotels.com",
+        "mentions": 3
+      },
+      {
+        "domain": "travelocity.com",
+        "mentions": 3
+      },
+      {
+        "domain": "adagio-city.com",
+        "mentions": 3
+      },
+      {
+        "domain": "zurich-hotels.net",
+        "mentions": 3
+      },
+      {
+        "domain": "hotel-welcomeinn.ch",
+        "mentions": 3
+      },
+      {
+        "domain": "hotelmontana-zurich.com",
+        "mentions": 3
+      },
+      {
+        "domain": "thrillophilia.com",
+        "mentions": 2
+      },
+      {
+        "domain": "themostperfectview.com",
+        "mentions": 2
+      },
+      {
+        "domain": "widderhotel.com",
+        "mentions": 2
+      },
+      {
+        "domain": "ft.com",
+        "mentions": 2
+      },
+      {
+        "domain": "aparthotel.com",
+        "mentions": 2
+      },
+      {
+        "domain": "gotraveldaily.com",
+        "mentions": 2
+      },
+      {
+        "domain": "touristjourney.com",
+        "mentions": 2
+      },
+      {
+        "domain": "swisssuites.ch",
+        "mentions": 2
+      },
+      {
+        "domain": "airbnb.gy",
+        "mentions": 2
+      },
+      {
+        "domain": "instagram.com",
+        "mentions": 2
+      },
+      {
+        "domain": "findingalexx.com",
+        "mentions": 2
+      },
+      {
+        "domain": "wanderwego.com",
+        "mentions": 2
+      },
+      {
+        "domain": "pieterontour.com",
+        "mentions": 2
+      },
+      {
+        "domain": "zurich-hotels-now.com",
+        "mentions": 2
+      },
+      {
+        "domain": "romantichotels.com",
+        "mentions": 2
+      },
+      {
+        "domain": "thesqua.re",
+        "mentions": 2
+      },
+      {
+        "domain": "travelteachread.com",
+        "mentions": 2
+      },
+      {
+        "domain": "visionapartments.com",
+        "mentions": 2
+      },
+      {
+        "domain": "hyatt.com",
+        "mentions": 2
+      },
+      {
+        "domain": "ruby-hotels.com",
+        "mentions": 2
+      },
+      {
+        "domain": "ezyhotel.ch",
+        "mentions": 2
+      },
+      {
+        "domain": "hotels-zurich.net",
+        "mentions": 2
+      },
+      {
+        "domain": "ecohotels.com",
+        "mentions": 2
+      },
+      {
+        "domain": "hotels-zurich.com",
+        "mentions": 2
+      },
+      {
+        "domain": "welcomehotels.ch",
+        "mentions": 2
+      },
+      {
+        "domain": "hotel.com.au",
+        "mentions": 2
+      },
+      {
+        "domain": "thehotelguru.com",
+        "mentions": 2
+      },
+      {
+        "domain": "evendo.com",
+        "mentions": 1
+      },
+      {
+        "domain": "guggach.com",
+        "mentions": 1
+      },
+      {
+        "domain": "thenextguide.com",
+        "mentions": 1
+      },
+      {
+        "domain": "aplinsinthealps.com",
+        "mentions": 1
+      },
+      {
+        "domain": "travelanditinerary.com",
+        "mentions": 1
+      },
+      {
+        "domain": "myswitzerland.com",
+        "mentions": 1
+      },
+      {
+        "domain": "tripplanninghub.com",
+        "mentions": 1
+      },
+      {
+        "domain": "revigorate.com",
+        "mentions": 1
+      },
+      {
+        "domain": "thetravelingtaylors.world",
+        "mentions": 1
+      },
+      {
+        "domain": "worldtravelerguide.net",
+        "mentions": 1
+      },
+      {
+        "domain": "layla.ai",
+        "mentions": 1
+      },
+      {
+        "domain": "itinku.com",
+        "mentions": 1
+      },
+      {
+        "domain": "guidetoeurope.eu",
+        "mentions": 1
+      },
+      {
+        "domain": "kassoehousing.com",
+        "mentions": 1
+      },
+      {
+        "domain": "apartool.com",
+        "mentions": 1
+      },
+      {
+        "domain": "citystay.com",
+        "mentions": 1
+      },
+      {
+        "domain": "livingtown.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "ariser.com",
+        "mentions": 1
+      },
+      {
+        "domain": "aparthotel-baden.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "smart-apartments.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "zaubee.com",
+        "mentions": 1
+      },
+      {
+        "domain": "hectindia.com",
+        "mentions": 1
+      },
+      {
+        "domain": "zurich-furnished-homes.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "airbnb.com.mt",
+        "mentions": 1
+      },
+      {
+        "domain": "guestreservations.com",
+        "mentions": 1
+      },
+      {
+        "domain": "breakingtravelnews.com",
+        "mentions": 1
+      },
+      {
+        "domain": "waywardblog.com",
+        "mentions": 1
+      },
+      {
+        "domain": "leonardo-hotels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "holidaystoswitzerland.com",
+        "mentions": 1
+      },
+      {
+        "domain": "seatosequoia.com",
+        "mentions": 1
+      },
+      {
+        "domain": "globaldebauchery.com",
+        "mentions": 1
+      },
+      {
+        "domain": "arzotravels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "thewanderingcore.com",
+        "mentions": 1
+      },
+      {
+        "domain": "cntraveller.com",
+        "mentions": 1
+      },
+      {
+        "domain": "olliechinny.com",
+        "mentions": 1
+      },
+      {
+        "domain": "weareglobaltravellers.com",
+        "mentions": 1
+      },
+      {
+        "domain": "evyssavacations.com",
+        "mentions": 1
+      },
+      {
+        "domain": "talesofabackpacker.com",
+        "mentions": 1
+      },
+      {
+        "domain": "solotravelstory.com",
+        "mentions": 1
+      },
+      {
+        "domain": "destinationlesstravel.com",
+        "mentions": 1
+      },
+      {
+        "domain": "leonardohotels.co.uk",
+        "mentions": 1
+      },
+      {
+        "domain": "wild-about-travel.com",
+        "mentions": 1
+      },
+      {
+        "domain": "theintrepidguide.com",
+        "mentions": 1
+      },
+      {
+        "domain": "thetravelintern.com",
+        "mentions": 1
+      },
+      {
+        "domain": "journeyswithlejune.com",
+        "mentions": 1
+      },
+      {
+        "domain": "theculturetrip.com",
+        "mentions": 1
+      },
+      {
+        "domain": "yelp.com",
+        "mentions": 1
+      },
+      {
+        "domain": "turnipseedtravel.com",
+        "mentions": 1
+      },
+      {
+        "domain": "kayazurich.com",
+        "mentions": 1
+      },
+      {
+        "domain": "airalo.com",
+        "mentions": 1
+      },
+      {
+        "domain": "en-vols.com",
+        "mentions": 1
+      },
+      {
+        "domain": "deliciouslydirectionless.com",
+        "mentions": 1
+      },
+      {
+        "domain": "tourradar.com",
+        "mentions": 1
+      },
+      {
+        "domain": "lovelydelites.com",
+        "mentions": 1
+      },
+      {
+        "domain": "tripadvisor.in",
+        "mentions": 1
+      },
+      {
+        "domain": "tripadvisor.co.uk",
+        "mentions": 1
+      },
+      {
+        "domain": "makemytrip.com",
+        "mentions": 1
+      },
+      {
+        "domain": "expedia.co.in",
+        "mentions": 1
+      },
+      {
+        "domain": "airbnb.ie",
+        "mentions": 1
+      },
+      {
+        "domain": "timeout.com",
+        "mentions": 1
+      },
+      {
+        "domain": "hoteles.com",
+        "mentions": 1
+      },
+      {
+        "domain": "trip101.com",
+        "mentions": 1
+      },
+      {
+        "domain": "swisstours.com",
+        "mentions": 1
+      },
+      {
+        "domain": "plantrip.io",
+        "mentions": 1
+      },
+      {
+        "domain": "southendairport.net",
+        "mentions": 1
+      },
+      {
+        "domain": "businesstraveller.com",
+        "mentions": 1
+      },
+      {
+        "domain": "expedia.co.kr",
+        "mentions": 1
+      },
+      {
+        "domain": "luxurytoursswitzerland.com",
+        "mentions": 1
+      },
+      {
+        "domain": "aparthotel.biz",
+        "mentions": 1
+      },
+      {
+        "domain": "swisszurichhotels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "myboutiquehotel.com",
+        "mentions": 1
+      },
+      {
+        "domain": "boutiquehotel.me",
+        "mentions": 1
+      },
+      {
+        "domain": "mrandmrssmith.com",
+        "mentions": 1
+      },
+      {
+        "domain": "escapio.com",
+        "mentions": 1
+      },
+      {
+        "domain": "designhotels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "slh.com",
+        "mentions": 1
+      },
+      {
+        "domain": "michelin.com",
+        "mentions": 1
+      },
+      {
+        "domain": "adults-only-hotels.net",
+        "mentions": 1
+      },
+      {
+        "domain": "couples-hotels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "zurich10.com",
+        "mentions": 1
+      },
+      {
+        "domain": "wanderingwheatleys.com",
+        "mentions": 1
+      },
+      {
+        "domain": "romantikhotels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "oyster.com",
+        "mentions": 1
+      },
+      {
+        "domain": "boutiquehotele.com",
+        "mentions": 1
+      },
+      {
+        "domain": "newhotels.guide",
+        "mentions": 1
+      },
+      {
+        "domain": "romantic-getaway.me",
+        "mentions": 1
+      },
+      {
+        "domain": "boutiquehotel.guru",
+        "mentions": 1
+      },
+      {
+        "domain": "romanticoshotels.com",
+        "mentions": 1
+      },
+      {
+        "domain": "coupleshotels.org",
+        "mentions": 1
+      },
+      {
+        "domain": "boutiquehtls.com",
+        "mentions": 1
+      },
+      {
+        "domain": "orangesmile.com",
+        "mentions": 1
+      },
+      {
+        "domain": "amanthosliving.com",
+        "mentions": 1
+      },
+      {
+        "domain": "numastays.com",
+        "mentions": 1
+      },
+      {
+        "domain": "vrbo.com",
+        "mentions": 1
+      },
+      {
+        "domain": "stayntouch.com",
+        "mentions": 1
+      },
+      {
+        "domain": "twofoodiesonaplane.com",
+        "mentions": 1
+      },
+      {
+        "domain": "sedus.com",
+        "mentions": 1
+      },
+      {
+        "domain": "ch-zurich.com",
+        "mentions": 1
+      },
+      {
+        "domain": "easyhotel.com",
+        "mentions": 1
+      },
+      {
+        "domain": "zurichhotels.org",
+        "mentions": 1
+      },
+      {
+        "domain": "achesahomes.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "top-hotels-switzerland.com",
+        "mentions": 1
+      },
+      {
+        "domain": "expedia.ca",
+        "mentions": 1
+      },
+      {
+        "domain": "hrs.com",
+        "mentions": 1
+      },
+      {
+        "domain": "hotelinzurich.net",
+        "mentions": 1
+      },
+      {
+        "domain": "lebijou.com",
+        "mentions": 1
+      },
+      {
+        "domain": "traveltowith.com",
+        "mentions": 1
+      },
+      {
+        "domain": "bookretreats.com",
+        "mentions": 1
+      },
+      {
+        "domain": "lonelyplanet.com",
+        "mentions": 1
+      },
+      {
+        "domain": "spotahome.com",
+        "mentions": 1
+      },
+      {
+        "domain": "expedia.co.uk",
+        "mentions": 1
+      },
+      {
+        "domain": "hotelstgotthard.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "srabbani.com",
+        "mentions": 1
+      },
+      {
+        "domain": "homegate.ch",
+        "mentions": 1
+      },
+      {
+        "domain": "theplanetd.com",
+        "mentions": 1
+      },
+      {
+        "domain": "hotelplanner.com",
+        "mentions": 1
+      },
+      {
+        "domain": "relaischateaux.com",
+        "mentions": 1
+      },
+      {
+        "domain": "bryandijkh.com",
+        "mentions": 1
+      },
+      {
+        "domain": "wheretostay.in",
+        "mentions": 1
+      },
+      {
+        "domain": "vogue.com",
+        "mentions": 1
+      },
+      {
+        "domain": "seekinplaces.com",
+        "mentions": 1
+      },
+      {
+        "domain": "tripsandleisure.com",
+        "mentions": 1
+      },
+      {
+        "domain": "adventourely.com",
+        "mentions": 1
+      },
+      {
+        "domain": "flavor365.com",
+        "mentions": 1
+      },
+      {
+        "domain": "treksplorer.com",
+        "mentions": 1
+      },
+      {
+        "domain": "penguinandpia.com",
+        "mentions": 1
+      },
+      {
+        "domain": "tripbloomer.com",
+        "mentions": 1
+      },
+      {
+        "domain": "itinerary.expert",
+        "mentions": 1
+      },
+      {
+        "domain": "summertimeinswitzerland.com",
+        "mentions": 1
+      },
+      {
+        "domain": "hoteljules.com",
+        "mentions": 1
+      },
+      {
+        "domain": "myswisstravelpass.com",
+        "mentions": 1
+      },
+      {
+        "domain": "travelhotelexpert.com",
+        "mentions": 1
+      },
+      {
+        "domain": "guidetoeurope.com",
+        "mentions": 1
+      },
+      {
+        "domain": "switzerlanding.com",
+        "mentions": 1
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.foratravel.com/guides/X4EN8J/how-to-spend-three-days-in-zurich-lawren-desai",
+        "domain": "foratravel.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.overtheplanet.com/{lang}/unique-experiences-with-zurich-city-tour-with-chocolate-tasting-and-lake-cruise.a{product_id}",
+        "domain": "overtheplanet.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.silverdoor.com/blog/our-top-5-serviced-apartments-in-zurich",
+        "domain": "silverdoor.com",
+        "category": "earned",
+        "mentions": 4
+      },
+      {
+        "url": "https://www.lockeliving.com/en/zurich/locke-am-platz",
+        "domain": "lockeliving.com",
+        "category": "owned",
+        "mentions": 5
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsList-Zurich-Luxury-Boutique-Hotels-zfp33921.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://thewanderbug.com/3-days-in-zurich",
+        "domain": "thewanderbug.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.agoda.com/activities/search",
+        "domain": "agoda.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.overtheplanet.com/{lang}/unique-experiences-with-castle-cheese-and-chocolate-tour-in-zurich.a{product_id}",
+        "domain": "overtheplanet.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.overtheplanet.com/{lang}/unique-experiences-with-zurich-private-city-walking-tour-with-polybahn-ride.a{product_id}",
+        "domain": "overtheplanet.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.thrillophilia.com/attractions/lake-zurich",
+        "domain": "thrillophilia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.thrillophilia.com/attractions/uetliberg",
+        "domain": "thrillophilia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://evendo.com/product/fuhrung-liebesgeschichten-von-zurich/228271-641338",
+        "domain": "evendo.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.themostperfectview.com/zurich-hotels-best-old-town-lake-views",
+        "domain": "themostperfectview.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.zuerich.com/en/inform-plan/find-accommodation/hotels/lakeside-hotels",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://zurich.aparthotelshq.com",
+        "domain": "aparthotelshq.com",
+        "category": "earned",
+        "mentions": 5
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsList-Zurich-Apartment-Hotels-zfp18003.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 7
+      },
+      {
+        "url": "https://www.hotels.com/de172809-at20/apart-hotels-hotels-zurich-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 4
+      },
+      {
+        "url": "https://www.widderhotel.com/en/luxury-residences",
+        "domain": "widderhotel.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.guggach.com",
+        "domain": "guggach.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Apart-Hotels.d553248635358954983-aaApartHotels.Travel-Guide-Accommodation",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 5
+      },
+      {
+        "url": "https://www.thenextguide.com/itineraries/zurich/3-day-romantic-escape-in-zurich",
+        "domain": "thenextguide.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Quaianlagen_%28Zurich%29",
+        "domain": "wikipedia.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.ft.com/content/17abc354-e3b9-48b8-8a25-bdccb4426f7f",
+        "domain": "ft.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Lake_Zurich",
+        "domain": "wikipedia.org",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://thewanderbug.com/3-days-in-zurich/zurich-old-town_night-13",
+        "domain": "thewanderbug.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://thewanderbug.com/3-days-in-zurich/felsenegg-zurich-98",
+        "domain": "thewanderbug.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/Articles-lviszWQeBCeg-3_days_in_zurich_itinerary.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 4
+      },
+      {
+        "url": "https://aplinsinthealps.com/guides/3-day-guide-to-zurich-switzerland",
+        "domain": "aplinsinthealps.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://travelanditinerary.com/3-day-zurich-itinerary",
+        "domain": "travelanditinerary.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.swissactivities.com/en-ch/switzerland-itineraries/itinerary-three-days-switzerland-zurich",
+        "domain": "swissactivities.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myswitzerland.com/en-us/experiences/experience-tour/grand-tour-of-switzerland/grand-tour-accommodations-search/-/zurich",
+        "domain": "myswitzerland.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://luxuryhotel.guru/lake-zurich-switzerland",
+        "domain": "luxuryhotel.guru",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.tripplanninghub.com/destinations/zurich-switzerland/itinerary/3-days",
+        "domain": "tripplanninghub.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.revigorate.com/things-to-do-in-zurich.html",
+        "domain": "revigorate.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://aparthotel.com/switzerland/zurich",
+        "domain": "aparthotel.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.hotels-zurich.org/en/type/aparthotels-2",
+        "domain": "hotels-zurich.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.gotraveldaily.com/ultimate-3-day-zurich-itinerary-2025-gotraveldaily",
+        "domain": "gotraveldaily.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.expedia.com/Lake-Zurich-Hotels-Romantic-Hotel.0-0-d6050798-tRomanticHotel.Travel-Guide-Filter-Hotels",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://thetravelingtaylors.world/switzerland/3-days-in-zurich-itinerary",
+        "domain": "thetravelingtaylors.world",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.worldtravelerguide.net/the-perfect-3-days-in-zurich-switzerland-updated-2024",
+        "domain": "worldtravelerguide.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://layla.ai/itinerary/zurich-adventure%3A-5-days-of-swiss-bliss/018f2640-66cd-7d85-9811-cafbd8370f4f",
+        "domain": "layla.ai",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://itinku.com/3-days-in-zurich-the-perfect-zurich-itinerary",
+        "domain": "itinku.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.google.com/viewer/place",
+        "domain": "google.com",
+        "category": "earned",
+        "mentions": 16
+      },
+      {
+        "url": "https://livelybylaura.com/what-to-do-in-zurich-4-days",
+        "domain": "livelybylaura.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.foratravel.com/guides/6VW7XF/4-days-in-zurich-travel-itinerary-for-culture-and-luxury-amelia-giannarelli",
+        "domain": "foratravel.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.theblueground.com/furnished-apartments-zurich-ch",
+        "domain": "theblueground.com",
+        "category": "earned",
+        "mentions": 4
+      },
+      {
+        "url": "https://www.theblueground.com/m/corporate-apartments/zurich-che",
+        "domain": "theblueground.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.swissactivities.com/en-ch/switzerland-itineraries/4-days-switzerland-itineraries-zurich",
+        "domain": "swissactivities.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://guidetoeurope.eu/switzerland/best-vacation-packages/city-breaks/4-days-starting-in-zurich",
+        "domain": "guidetoeurope.eu",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://touristjourney.com/tours/switzerland-4-day-tour-package",
+        "domain": "touristjourney.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myswissalps.com/community/thread/4day-3night-advice-if-itinerary-is-feasible",
+        "domain": "myswissalps.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/ShowTopic-g188113-i337-k13799249-4_day_itinerary_in_Zurich-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://community.ricksteves.com/travel-forum/switzerland/3-or-4-days-in-switzerland-zurich-as-home-base-possible-ideas",
+        "domain": "ricksteves.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://kassoehousing.com/zurich",
+        "domain": "kassoehousing.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.radissonhotels.com/en-us/hotels/radisson-hotel-and-suites-zurich/long_stays",
+        "domain": "radissonhotels.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.apartool.com/en/locations/serviced-apartments-zurich",
+        "domain": "apartool.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://citystay.com/en",
+        "domain": "citystay.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://acasasuites.com/en/serviced-apartments.html",
+        "domain": "acasasuites.com",
+        "category": "earned",
+        "mentions": 7
+      },
+      {
+        "url": "https://en.livingtown.ch",
+        "domain": "livingtown.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://swisssuites.ch",
+        "domain": "swisssuites.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://swisssuites.ch/en/corporate-stays",
+        "domain": "swisssuites.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.ariser.com",
+        "domain": "ariser.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.aparthotel-baden.ch/en/business-apartment-near-zurich",
+        "domain": "aparthotel-baden.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.smart-apartments.ch/en/serviced-apartments/zurich",
+        "domain": "smart-apartments.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airbnb.com/rooms/38307341",
+        "domain": "airbnb.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.glandon-apartments.ch/en/locations",
+        "domain": "glandon-apartments.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.glandon-apartments.ch/en",
+        "domain": "glandon-apartments.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.glandon-apartments.ch/en/glandon-rooms",
+        "domain": "glandon-apartments.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.glandon-apartments.ch/en/apartments",
+        "domain": "glandon-apartments.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airbnb.gy/rooms/1524796091747303939",
+        "domain": "airbnb.gy",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airbnb.gy/rooms/1507448009702894489",
+        "domain": "airbnb.gy",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://zaubee.com/biz/city-pop-zurich-altstetten-320sto4g",
+        "domain": "zaubee.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hectindia.com/hotel/premium-apartments-by-livingdowntown",
+        "domain": "hectindia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://zurich-furnished-homes.ch",
+        "domain": "zurich-furnished-homes.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airbnb.com.mt/rooms/1435136353593229338",
+        "domain": "airbnb.com.mt",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.guestreservations.com/mooi-apartments-schlieren/booking",
+        "domain": "guestreservations.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.breakingtravelnews.com/news/article/radisson-hotel-group-opens-first-serviced-apartments-offering-in-switzerlan",
+        "domain": "breakingtravelnews.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.instagram.com/p/DRmifw0gG82",
+        "domain": "instagram.com",
+        "category": "operated",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.getyourguide.com/explorer/zurich-ttd55/weekend-in-zurich",
+        "domain": "getyourguide.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.waywardblog.com/weekend-travel-guide-zurich-switzerland",
+        "domain": "waywardblog.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zuerich.com/en/inform-plan/24h-48h-or-72h-in-zurich/zurich-in-two-days-48h",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.zuerich.com/en/inform-plan/24h-48h-or-72h-in-zurich",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://community.ricksteves.com/travel-forum/switzerland/2-days-in-zurich",
+        "domain": "ricksteves.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.leonardo-hotels.com/blog/zurich-city-breaks-things-to-do-in-zurich-in-a-weekend",
+        "domain": "leonardo-hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.facebook.com/groups/258282988914075/posts/1334448074630889",
+        "domain": "facebook.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.swissactivities.com/en-ch/food-and-drink/zurich-food-tour-guided",
+        "domain": "swissactivities.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.overtheplanet.com/{lang}/unique-experiences-with-sightseeing-walking-tour-of-zurich.a{product_id}",
+        "domain": "overtheplanet.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myswissalps.com/community/thread/how-can-i-make-the-best-of-zurich-in-2-days",
+        "domain": "myswissalps.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://maddysavenue.com/two-days-in-zurich-switzerland",
+        "domain": "maddysavenue.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.youtube.com/watch",
+        "domain": "youtube.com",
+        "category": "operated",
+        "mentions": 7
+      },
+      {
+        "url": "https://www.viator.com/blog/Zurich/d577/How-to-Spend-2-Days-in-Zurich/i26644",
+        "domain": "viator.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://holidaystoswitzerland.com/how-to-spend-48-hours-in-zurich",
+        "domain": "holidaystoswitzerland.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/ShowTopic-g188045-i336-k14895446-Help_with_2_days_of_itinerary_Mt_Rigi_Basel_Zurich-Switzerland.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://seatosequoia.com/zurich-in-two-days",
+        "domain": "seatosequoia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Things-To-Do-In-Zurich.d4191.Travel-Guide-Activities",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://globaldebauchery.com/free-things-to-do-in-zurich",
+        "domain": "globaldebauchery.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://arzotravels.com/places-to-visit-in-zurich-in-2-days",
+        "domain": "arzotravels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.facebook.com/groups/258282988914075/posts/1290702619005435",
+        "domain": "facebook.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.facebook.com/groups/switzerlandtraveltips/posts/1803606787115864",
+        "domain": "facebook.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://thewanderingcore.com/two-days-in-zurich-with-best-places-to-visit",
+        "domain": "thewanderingcore.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.cntraveller.com/article/best-things-to-do-zurich-switzerland",
+        "domain": "cntraveller.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://olliechinny.com/weekend-in-zurich-switzerland",
+        "domain": "olliechinny.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://weareglobaltravellers.com/2017/08/3-days-zurich-switzerland",
+        "domain": "weareglobaltravellers.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.evyssavacations.com/article/zurich-city-break-your-ultimate-guide-for-a-mini-switzerland-escape",
+        "domain": "evyssavacations.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://talesofabackpacker.com/2-days-in-zurich-switzerland-the-best-2-day-zurich-itinerary",
+        "domain": "talesofabackpacker.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myswissalps.com/community/thread/please-help-with-a-2-day-switzerland-itinerary",
+        "domain": "myswissalps.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://solotravelstory.com/zurich-city-break",
+        "domain": "solotravelstory.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.reddit.com/r/askswitzerland/comments/1l93w0x/things_to_do_in_zurich_for_2_days",
+        "domain": "reddit.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.reddit.com/r/travel/comments/1hjrlj2/2_full_days_in_switzerland_what_do_we_do",
+        "domain": "reddit.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://destinationlesstravel.com/two-days-in-zurich-itinerary",
+        "domain": "destinationlesstravel.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.leonardohotels.co.uk/blog/zurich-city-breaks-things-to-do-in-zurich-in-a-weekend",
+        "domain": "leonardohotels.co.uk",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://wild-about-travel.com/where-to-stay-in-zurich-switzerland",
+        "domain": "wild-about-travel.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.theintrepidguide.com/zurich-itinerary-things-to-do-in-zurich",
+        "domain": "theintrepidguide.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://thetravelintern.com/zurich-itinerary-for-first-timers",
+        "domain": "thetravelintern.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://journeyswithlejune.com/zurich-what-to-see-on-a-short-visit",
+        "domain": "journeyswithlejune.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/Hotel_Review-g188113-d33080056-Reviews-City_Pop_2Night-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/ho3586545536/city-pop-2night-zurich",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://findingalexx.com/5-day-switzerland-itinerary",
+        "domain": "findingalexx.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.wanderwego.com/home/zurich-visitor-guide",
+        "domain": "wanderwego.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.zuerich.com/en/visit/shopping/weekly-market-at-burkliplatz",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://theculturetrip.com/europe/switzerland/zurich/articles/the-8-best-markets-in-zurich-flea-to-farmers",
+        "domain": "theculturetrip.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://m.yelp.com/search",
+        "domain": "yelp.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zuerich.com/en/visit/attractions/zurich-west",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.turnipseedtravel.com/blog/things-to-do-in-zurich-west",
+        "domain": "turnipseedtravel.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://kayazurich.com/weeky-farmers-market-spring-autumn-2025",
+        "domain": "kayazurich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zuerich.com/en/sightseeing-activities/shopping/weekly-markets",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airalo.com/blog/5-days-in-switzerland-the-ultimate-itinerary",
+        "domain": "airalo.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://guide.en-vols.com/en/adresse/zurich-ouest-trendy-area",
+        "domain": "en-vols.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://deliciouslydirectionless.com/5-things-must-do-zurich-west",
+        "domain": "deliciouslydirectionless.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://ema-house.ch/en/serviced-apartments-zurich",
+        "domain": "ema-house.ch",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.booking.com/aparthotels/city/ch/zurich.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 7
+      },
+      {
+        "url": "https://ema-house.ch/en/locations-zurich/florastrasse-30",
+        "domain": "ema-house.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://touristjourney.com/tours/zurich-5-day-tour-package",
+        "domain": "touristjourney.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tourradar.com/t/264425",
+        "domain": "tourradar.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myswissalps.com/community/thread/switzerland-for-5-days-with-zurich-as-a-base",
+        "domain": "myswissalps.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://lovelydelites.com/5-days-in-switzerland-our-itinerary",
+        "domain": "lovelydelites.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://community.ricksteves.com/travel-forum/switzerland/4-or-5-days-in-switzerland-f3ae74b5-5ed0-479a-96fd-024a95100fe7",
+        "domain": "ricksteves.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/ShowTopic-g188045-i336-k9418464-5_days_Swiss_itinerary_with_Zurich_as_Base-Switzerland.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.in/HotelsList-Zurich-Apartment-Hotels-zfp103519.html",
+        "domain": "tripadvisor.in",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.pieterontour.com/switzerland/zurich-travel-guide-itinerary-walks-day-trips",
+        "domain": "pieterontour.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.tripadvisor.co.uk/HotelsList-Zurich-Apartment-Hotels-zfp103523.html",
+        "domain": "tripadvisor.co.uk",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Hotels-Aparthotel-Adagio-Zurich-Center.h67598951.Hotel-Information",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.expedia.com/Lamira-Serviced-Apartments.h91482287.Hotel-Information",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.makemytrip.com/hotels-international/switzerland/zurich_and_greater_zurich_area-hotels/aparthotel_adagio_zurich_center-details.html",
+        "domain": "makemytrip.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.cozycozy.com/us/zurich-serviced-apartments",
+        "domain": "cozycozy.com",
+        "category": "earned",
+        "mentions": 4
+      },
+      {
+        "url": "https://www.cozycozy.com/ca/zurich-serviced-apartments",
+        "domain": "cozycozy.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.cozycozy.com/nz/zurich-serviced-apartments",
+        "domain": "cozycozy.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/ho3854867456/viadukt-apartments",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.co.in/Zurich-Apart-Hotels.d4191-aaApartHotels.Travel-Guide-Accommodation",
+        "domain": "expedia.co.in",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.trip.com/hotels/apartments/city/ch/zurich.html",
+        "domain": "trip.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airbnb.ie/zurich-switzerland/stays/serviced-apartments",
+        "domain": "airbnb.ie",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.facebook.com/groups/switzerlandtraveltips/posts/1938971626912712",
+        "domain": "facebook.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://all.accor.com/hotel/B5J8/index.en.shtml",
+        "domain": "accor.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://en.planetofhotels.com/switzerland/zurich/aparthotel-adagio-zurich-center",
+        "domain": "planetofhotels.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.silverdoor.com/serviced-apartments/switzerland/zurich",
+        "domain": "silverdoor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.timeout.com/switzerland/things-to-do/best-things-to-do-in-zurich",
+        "domain": "timeout.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.agoda.com/city-stay-furnished-apartments-lindenstrasse/hotel/zurich-ch.html",
+        "domain": "agoda.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zuerich.com/en/inform-plan/24h-48h-or-72h-in-zurich/zurich-in-three-days-72h",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.viator.com/blog/Zurich/d577/3-Days-in-Zurich-for-First-Timers/i96668",
+        "domain": "viator.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.travelocity.com/Zurich-Hotels-Hotel-With-Early-Check-In.0-0-d4191-thotelwithearlycheckin.Travel-Guide-Filter-Hotels",
+        "domain": "travelocity.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.facebook.com/groups/258282988914075/posts/1226063738802657",
+        "domain": "facebook.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/ShowUserReviews-g188113-d23654847-r956221979-Aparthotel_Adagio_Zurich_City_Center-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.viator.com/blog/Zurich/d577/3-Days-in-Zurich-for-Families/i96670",
+        "domain": "viator.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://community.ricksteves.com/travel-forum/switzerland/zurich-hotels-morning-check-in",
+        "domain": "ricksteves.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.adagio-city.com/gb/hotel-B5J8-aparhotel-adagio-zurich-center",
+        "domain": "adagio-city.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Hotels-Hotel-With-Early-Check-In.0-0-d4191-thotelwithearlycheckin.Travel-Guide-Filter-Hotels",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://fredhotels.ch/en/fred-hotel-zurich-leonhardstrasse-self-check-in",
+        "domain": "fredhotels.ch",
+        "category": "earned",
+        "mentions": 4
+      },
+      {
+        "url": "https://www.hoteles.com/en/ho2164166432/aparthotel-adagio-zurich-center-zurich-switzerland",
+        "domain": "hoteles.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Uetliberg",
+        "domain": "wikipedia.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/reviews/ch/hotel/aparthotel-adagio-zurich-center.en-gb.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/aparthotel-adagio-zurich-center.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.marriott.com/offers/leisure-time-in-zurich-stay-3-nights-and-save-off-145645/zrhdt-zurich-marriott-hotel",
+        "domain": "marriott.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.marriott.com/offers/leisure-time-in-zurich-stay-3-nights-and-save-off-145645/zrhdt-zurich-marriott-hotel~X~8B8E5A9A-7677-5C91-9138-BE0D148C3F52~X~E8673329-1F78-52E5-837F-D7A0C412080F",
+        "domain": "marriott.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.marriott.com/offers/leisure-time-in-zurich-stay-3-nights-and-save-OFF-145645/ZRHDT-zurich-marriott-hotel~X~3BA21B89-61E3-5188-8103-598ECCD333C9",
+        "domain": "marriott.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/ho2164166432/aparthotel-adagio-zurich-center-zurich-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Hotels-Hotel-With-Early-Check-In.0-0-d553248635358954983-thotelwithearlycheckin.Travel-Guide-Filter-Hotels",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Apart-Hotels.d4191-aaApartHotels.Travel-Guide-Accommodation",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://us.trip.com/hotels/zurich-hotel-detail-72596525/aparthotel-adagio-zurich-center",
+        "domain": "trip.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.trip.com/hotels/zurich-hotel-detail-72596525/aparthotel-adagio-zurich-center/review.html",
+        "domain": "trip.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://us.trip.com/hotels/zurich-hotel-detail-72596525/aparthotel-adagio-zurich-center/review.html",
+        "domain": "trip.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.facebook.com/groups/579389193745176/posts/1369819644702123",
+        "domain": "facebook.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://trip101.com/article/aparthotels-in-zurich",
+        "domain": "trip101.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.swisstours.com/blog/switzerland-itinerary-3-days",
+        "domain": "swisstours.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://en.planetofhotels.com/switzerland/zurich/aparthotels",
+        "domain": "planetofhotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://plantrip.io/itinerary/1023930",
+        "domain": "plantrip.io",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://aparthoteladagiozurich.southendairport.net",
+        "domain": "southendairport.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://adagio-zurich-city-center.hotels-zurich.org/en",
+        "domain": "hotels-zurich.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.businesstraveller.com/tried-tested/aparthotel-review-locke-am-platz-enge-zurich",
+        "domain": "businesstraveller.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.co.kr/en/Zurich-Hotels-Aparthotel-Adagio-Zurich-Center.h67598951.Hotel-Information",
+        "domain": "expedia.co.kr",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://luxurytoursswitzerland.com/itineraries/3-days-in-zurich-tour-itinerary",
+        "domain": "luxurytoursswitzerland.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://adagio-city-center.zurich-hotels.net/en",
+        "domain": "zurich-hotels.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://aparthotel.biz/zurich",
+        "domain": "aparthotel.biz",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zurich-hotels-now.com/en/type/aparthotels-2",
+        "domain": "zurich-hotels-now.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://swisszurichhotels.com/aparthotels-zurich",
+        "domain": "swisszurichhotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsList-Zurich-Romantic-Boutique-Hotels-zfp10850426.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsList-Zurich-Hotels-On-The-Lake-zfp39266.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.expedia.com/Lake-Zurich-Hotels-Hotels-With-View.0-0-d6050798-tHotelswithView.Travel-Guide-Filter-Hotels",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsNear-g188113-d285099-oa30-Lake_Zurich-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myboutiquehotel.com/en/boutique-hotels-zurich",
+        "domain": "myboutiquehotel.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://boutiquehotel.me/lake-zurich-switzerland",
+        "domain": "boutiquehotel.me",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.mrandmrssmith.com/destinations/switzerland/zurich/hotels",
+        "domain": "mrandmrssmith.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://en.escapio.com/boutique-hotels/lake-zurich",
+        "domain": "escapio.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.designhotels.com/hotels/switzerland",
+        "domain": "designhotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://slh.com/europe/switzerland/zurich",
+        "domain": "slh.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://guide.michelin.com/en/hotels-stays/zurich",
+        "domain": "michelin.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://adults-only-hotels.net/zurich-switzerland/luxury_boutique",
+        "domain": "adults-only-hotels.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://couples-hotels.com/zurich-switzerland",
+        "domain": "couples-hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://zurich10.com/hotels-on-lake",
+        "domain": "zurich10.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://wanderingwheatleys.com/best-boutique-hotels-zurich-switzerland",
+        "domain": "wanderingwheatleys.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://luxuryhotel.guru/lake-zurich-switzerland/luxury_central",
+        "domain": "luxuryhotel.guru",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.romantikhotels.com/en/hotels/romantik-hotel-europe",
+        "domain": "romantikhotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.oyster.com/zurich/hotels/roundups/most-romantic-hotels-in-zurich",
+        "domain": "oyster.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://romantichotels.com/zurich-switzerland",
+        "domain": "romantichotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://romantichotels.com/zurich-switzerland/getaway",
+        "domain": "romantichotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/design/region/ch/lake-zurich.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://boutiquehotele.com/zurich",
+        "domain": "boutiquehotele.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://newhotels.guide/lake-zurich-switzerland",
+        "domain": "newhotels.guide",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://romantic-getaway.me/zurich-switzerland",
+        "domain": "romantic-getaway.me",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://boutiquehotel.guru/lake-zurich-switzerland",
+        "domain": "boutiquehotel.guru",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://romanticoshotels.com/zurich-switzerland",
+        "domain": "romanticoshotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://coupleshotels.org/zurich-romantic-hotels",
+        "domain": "coupleshotels.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://boutiquehtls.com/lake-lucerne-switzerland",
+        "domain": "boutiquehtls.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.orangesmile.com/travelguide/zurich/romantichotels--2554935.htm",
+        "domain": "orangesmile.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.thesqua.re/zurich/zuerich-west/serviced-apartments",
+        "domain": "thesqua.re",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.radissonhotels.com/en-us/blog/destination/zurich-neighborhoods",
+        "domain": "radissonhotels.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://travelteachread.com/a-zurich-neighbourhood-guide-where-to-stay-and-explore",
+        "domain": "travelteachread.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.airbnb.com/zurich-switzerland/stays/serviced-apartments",
+        "domain": "airbnb.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://visionapartments.com/en",
+        "domain": "visionapartments.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.agoda.com/ema-house-serviced-apartments-superior-standard-unterstrass_2/hotel/zurich-ch.html",
+        "domain": "agoda.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.amanthosliving.com",
+        "domain": "amanthosliving.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://au.hotels.com/ho607764096/ema-house-serviced-apartments-seefeld-zurich-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://numastays.com/locations/switzerland/zurich",
+        "domain": "numastays.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.vrbo.com/pdp/lo/91482287",
+        "domain": "vrbo.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Hotels-Livingtown-AG.h100297436.Hotel-Information",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.glandon-apartments.ch/en/zuerich",
+        "domain": "glandon-apartments.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.thesqua.re/zurich/wiedikon/serviced-apartments",
+        "domain": "thesqua.re",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.reddit.com/r/askswitzerland/comments/1fm18zc/serviced_apartments_in_zurich",
+        "domain": "reddit.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://world.hyatt.com/content/gp/en/landing/digital-key.html",
+        "domain": "hyatt.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://world.hyatt.com/content/gp/en/rewards/mobile.html",
+        "domain": "hyatt.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://hotel-welcomeinn.ch/en/contactless-stay",
+        "domain": "hotel-welcomeinn.ch",
+        "category": "earned",
+        "mentions": 3
+      },
+      {
+        "url": "https://www.ruby-hotels.com/en/destinations/zurich/ruby-mimi",
+        "domain": "ruby-hotels.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.tripadvisor.com/ShowUserReviews-g188113-d17452639-r867638961-CitizenM_Zurich_hotel-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/ShowUserReviews-g188113-d17452639-r738129993-Citizenm_Zurich-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://hotelmontana-zurich.com/en/digital-check-in-check-out",
+        "domain": "hotelmontana-zurich.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.tripadvisor.com/Hotel_Review-g188113-d23519202-Reviews-Ruby_Mimi_Zurich-Zurich.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.stayntouch.com/news/stayntouch-helps-first-zoku-redefine-guest-experience",
+        "domain": "stayntouch.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.twofoodiesonaplane.com/travel/ruby-mimi-hotel-zurich-review",
+        "domain": "twofoodiesonaplane.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.sedus.com/en/whatsup/hybrid-hotels-the-future-of-work-needs-space-for-human-relationships",
+        "domain": "sedus.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://ezyhotel.ch/en/hotel-self-check-in",
+        "domain": "ezyhotel.ch",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://guesthouse-hermes.zurich-hotels.net/en",
+        "domain": "zurich-hotels.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels-zurich.net/en/property/easyhotelwest.html",
+        "domain": "hotels-zurich.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://swissotel-zurich.hotels-zurich.org/en",
+        "domain": "hotels-zurich.org",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.trivago.com/en-US/oar/hotel-guest-house-hermes-contactless-self-checkin-z%25C3%25BCrich",
+        "domain": "trivago.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://ecohotels.com/hotels/switzerland/zurich/hotel-montana-contactless-self-check-in",
+        "domain": "ecohotels.com",
+        "category": "earned",
+        "mentions": 2
+      },
+      {
+        "url": "https://ch-zurich.com/en/p/deltacityin.html",
+        "domain": "ch-zurich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/fred-hotel-leonhardstrasse.en-gb.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.easyhotel.com/hotels/switzerland/zurich/zurich",
+        "domain": "easyhotel.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/ho473895/easyhotel-zurich-city-centre-zurich-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://guesthouse-hermes.hotels-zurich.com/en",
+        "domain": "hotels-zurich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://sleep-go.hotels-zurich.com/en",
+        "domain": "hotels-zurich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zurichhotels.org/delta-city-hotels-self-check-in.en.html",
+        "domain": "zurichhotels.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.welcomehotels.ch/allegra-lodge/en/hotel-apartments/contactless-hotel-stay",
+        "domain": "welcomehotels.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://hotelmontana-zurich.com/en/digitaler-check-in-check-out",
+        "domain": "hotelmontana-zurich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/ho128067/leoneck-swiss-hotel-zurich-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/ho507392/hotel-wassberg-maur-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/tilia.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/fred-hotel-leonhardstrasse.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/swiss-star-irchel-contactless-self-check-in.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/guesthouse-langstrasse.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/guesthouse-hermes.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotel.com.au/zurich/zurich-24hr-check-in-hotels.htm",
+        "domain": "hotel.com.au",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://achesahomes.ch/en/self-check-in-check-out",
+        "domain": "achesahomes.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.welcomehotels.ch/allegra-lodge/en/hotel-apartments/service",
+        "domain": "welcomehotels.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://apartements-swiss-star-apartment.top-hotels-switzerland.com/en",
+        "domain": "top-hotels-switzerland.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Hotels-Leoneck-Swiss-Hotel.h41157.Hotel-Information",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.trivago.com/en-US/oar/fred-hotel-leonhardstrasse-self-check-in-z%C3%BCrich",
+        "domain": "trivago.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.trivago.com/en-US/oar/hotel-swiss-star-district-11-self-check-in-z%C3%BCrich",
+        "domain": "trivago.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.agoda.com/swiss-star-irchel-contactless-self-check-in/hotel/engelberg-ch.html",
+        "domain": "agoda.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://all.accor.com/hotel/2942/index.en.shtml",
+        "domain": "accor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.ca/Zurich-Hotels-EasyHotel-Zurich-City-Centre.h2877227.Hotel-Information",
+        "domain": "expedia.ca",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hrs.com/en/hotel/51300",
+        "domain": "hrs.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://nani-city.hotelinzurich.net/en",
+        "domain": "hotelinzurich.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotel.com.au/zurich/soundproofed-hotel-rooms-in-zurich.htm",
+        "domain": "hotel.com.au",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsList-Zurich-Hotels-With-Soundproof-Rooms-zfp18439804.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.lockeliving.com/en/zurich",
+        "domain": "lockeliving.com",
+        "category": "owned",
+        "mentions": 2
+      },
+      {
+        "url": "https://www.zurich-hotels.net/en/all-accommodations",
+        "domain": "zurich-hotels.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels-zurich.net/en/property/luxury-quiet-flat-overlooking/rooms.html",
+        "domain": "hotels-zurich.net",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zurich-hotels-now.com/en/property/luxury-quiet-flat-overlooking.html",
+        "domain": "zurich-hotels-now.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.trivago.com/en-US/oar/serviced-apartment-luxury-apartments-by-livingdowntown-z%C3%BCrich",
+        "domain": "trivago.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Zurich-Hotels-Townhouse-Boutique-Hotel.h16139767.Hotel-Information",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://lebijou.com",
+        "domain": "lebijou.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripadvisor.com/HotelsList-Zurich-Hotels-With-Air-Conditioning-zfp17140102.html",
+        "domain": "tripadvisor.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/hotel/ch/city-center-zurich-downtown-apartments-next-to-zurich-hb-main-train-station-neu.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://acasasuites.com/en",
+        "domain": "acasasuites.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.reddit.com/r/askswitzerland/comments/1mvmsap/help_finding_temporary_stay_in_zurich_and_nearby",
+        "domain": "reddit.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.traveltowith.com/en/switzerland/zurich/hotel/detail/aparthotel-adagio-zurich-city-center/solo",
+        "domain": "traveltowith.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://bookretreats.com/s/other-retreats/solo-retreat/switzerland",
+        "domain": "bookretreats.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.airbnb.com/rooms/33152255",
+        "domain": "airbnb.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.lonelyplanet.com/articles/best-neighborhoods-in-zurich",
+        "domain": "lonelyplanet.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.spotahome.com/s/zurich/for-rent:apartments/bedrooms:2",
+        "domain": "spotahome.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.co.uk/Seefeld-Zurich-Hotels.0-n6223613-0.Travel-Guide-Filter-Hotels",
+        "domain": "expedia.co.uk",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.zuerich.com/en/visit/nature/tobogganing-on-the-uetliberg",
+        "domain": "zuerich.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotelstgotthard.ch/en/zurich-city-trip-ideas/spring-zurich",
+        "domain": "hotelstgotthard.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/apartments/region/ch/lake-zurich.en-gb.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/booking-home/city/ch/zurich.en-gb.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/District_10_%28Z%C3%BCrich%29",
+        "domain": "wikipedia.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.srabbani.com/zurich.html",
+        "domain": "srabbani.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.homegate.ch/c/en/advisor/renting/find-an-apartment/districts-zurich",
+        "domain": "homegate.ch",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Industriequartier_(Zurich)",
+        "domain": "wikipedia.org",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://theplanetd.com/where-to-stay-in-zurich",
+        "domain": "theplanetd.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotelplanner.com/Hotels/45001-in-Lake-Zurich-Switzerland.html",
+        "domain": "hotelplanner.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.expedia.com/Lakeside-Promenade-Hotels.0-l6224424-0.Travel-Guide-Filter-Hotels",
+        "domain": "expedia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.marriott.com/en-us/hotels/zrhdt-zurich-marriott-hotel/overview",
+        "domain": "marriott.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.hotels.com/nh12530642/hotels-in-zurich-center-zurich-switzerland",
+        "domain": "hotels.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.relaischateaux.com/us/hotel/alex-lake-zurich",
+        "domain": "relaischateaux.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.booking.com/district/ch/zurich/1rathaus-hochschulen-lindenhof-city.html",
+        "domain": "booking.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://bryandijkh.com/the-best-areas-to-stay-in-zurich-2025-guide",
+        "domain": "bryandijkh.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.thehotelguru.com/en-us/where-to-stay/zurich",
+        "domain": "thehotelguru.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://wheretostay.in/zurich",
+        "domain": "wheretostay.in",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.vogue.com/article/the-dolder-grand-spa",
+        "domain": "vogue.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.thehotelguru.com/en-us/best-hotels-in/switzerland/zurich",
+        "domain": "thehotelguru.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://seekinplaces.com/switzerland/where-to-stay-in-zurich",
+        "domain": "seekinplaces.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://tripsandleisure.com/inspirations/where-to-stay-in-zurich-as-a-tourist",
+        "domain": "tripsandleisure.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.adventourely.com/where-to-stay-in-zurich",
+        "domain": "adventourely.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://flavor365.com/zurich-s-best-neighborhoods-a-complete-2025-guide",
+        "domain": "flavor365.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.treksplorer.com/where-to-stay-in-zurich-switzerland",
+        "domain": "treksplorer.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.penguinandpia.com/en/where-to-stay-in-zurich",
+        "domain": "penguinandpia.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.tripbloomer.com/where-to-stay-in-zurich-ultimate-guide-for-first-time-visitors",
+        "domain": "tripbloomer.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://itinerary.expert/switzerland/hotels-in-zurich",
+        "domain": "itinerary.expert",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.summertimeinswitzerland.com/post/where-to-stay-in-zurich",
+        "domain": "summertimeinswitzerland.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://hoteljules.com/where-to-stay-in-zurich-switzerland",
+        "domain": "hoteljules.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://www.myswisstravelpass.com/destinations/zurich-neighborhoods-guide-best-areas-to-explore",
+        "domain": "myswisstravelpass.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://travelhotelexpert.com/where-to-stay-in-zurich-for-first-time",
+        "domain": "travelhotelexpert.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://guidetoeurope.com/switzerland/discover/best-places-to-stay/in-zurich",
+        "domain": "guidetoeurope.com",
+        "category": "earned",
+        "mentions": 1
+      },
+      {
+        "url": "https://switzerlanding.com/where-stay-zurich",
+        "domain": "switzerlanding.com",
+        "category": "earned",
+        "mentions": 1
+      }
+    ]
   },
-  "competitor_rankings": [],
-  "visibility_score": {
-    "overall": 0.0,
-    "per_engine": {
-      "google": 0.0,
-      "perplexity": 0.0,
-      "chatgpt": 0.0
+  "competitor_rankings": [
+    {
+      "search_query": "I need a 3-day Zurich itinerary for a couple. Where is a stylish aparthotel near Lake Zurich?",
+      "competitors": [
+        {
+          "name": "Alex Lake Zürich",
+          "website": "https://www.alexlakezurich.com",
+          "ranking": {
+            "google": 1,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "SilverDoor",
+          "website": "https://www.silverdoorapartments.com",
+          "ranking": {
+            "google": 2,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Tripadvisor",
+          "website": "https://www.tripadvisor.com",
+          "ranking": {
+            "google": 3,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Locke am Platz",
+          "website": "https://www.lockeliving.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Seefeld Residenz",
+          "website": "https://www.seefeld-residenz.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "City Stay Apartments",
+          "website": "https://www.citystay.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": 2
+          }
+        },
+        {
+          "name": "Ameron Zürich Bellerive Au Lac",
+          "website": "https://www.ameronhotels.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 4,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "EMA House Serviced Apartments Seefeld",
+          "website": "https://www.emahouse.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "DELUXE ZÜRICH APPART & HOTEL",
+          "website": "https://www.deluxezuerich.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "La Réserve Eden au Lac Zurich",
+          "website": "https://www.lareserve-zurich.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        }
+      ]
     },
-    "per_query": []
+    {
+      "search_query": "Plan a 4-day business trip to Zurich. Where can I find flexible apartment-style lodging?",
+      "competitors": [
+        {
+          "name": "EMA House",
+          "website": "https://ema-house.ch",
+          "ranking": {
+            "google": 1,
+            "perplexity": null,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "City Stay",
+          "website": "https://citystay.com",
+          "ranking": {
+            "google": 2,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Guggach",
+          "website": "https://guggach.com",
+          "ranking": {
+            "google": 3,
+            "perplexity": null,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Zuerich Apartments",
+          "website": "https://zuerich-apartments.ch",
+          "ranking": {
+            "google": 4,
+            "perplexity": null,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "Blueground",
+          "website": "https://theblueground.com",
+          "ranking": {
+            "google": 5,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Zurich Furnished Homes",
+          "website": "https://zurich-furnished-homes.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "Aparthotel Adagio",
+          "website": "https://adagio-city.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        },
+        {
+          "name": "Acasa Suites",
+          "website": "https://acasasuites.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 9
+          }
+        },
+        {
+          "name": "Apartool",
+          "website": "https://apartool.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 10
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "Design a 2-day Zurich weekend itinerary. Suggest a hotel with easy online check-in.",
+      "competitors": [
+        {
+          "name": "Ruby Mimi Hotel & Bar",
+          "website": "https://www.ruby-hotels.com",
+          "ranking": {
+            "google": 1,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "25hours Hotel Zürich West",
+          "website": "https://www.25hours-hotels.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Baur au Lac",
+          "website": "https://www.bauraulac.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "Storchen Zürich - Lifestyle Boutique Hotel",
+          "website": "https://www.storchen.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 2
+          }
+        },
+        {
+          "name": "The Dolder Grand",
+          "website": "https://www.thedoldergrand.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "Park Hyatt Zurich",
+          "website": "https://www.hyatt.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Widder Hotel",
+          "website": "https://www.widderhotel.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Hotel Schweizerhof Zürich",
+          "website": "https://www.hotelschweizerhof.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "Hotel Motel One Zürich",
+          "website": "https://www.motel-one.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        },
+        {
+          "name": "Best Western Plus Hotel Zürcherhof",
+          "website": "https://www.bestwestern.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 9
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "Create a 5-day long-term stay guide for Zurich. Where should I book a serviced apartment?",
+      "competitors": [
+        {
+          "name": "Citadines",
+          "website": "https://www.discoverasr.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Aparthotel EasyZurich",
+          "website": "https://www.easyzurich.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Square Vision Apartments",
+          "website": "https://square-vision.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "EMA House",
+          "website": "https://www.emahouse.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "Aparthotel Adagio",
+          "website": "https://www.adagio-city.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "City Stay Apartments",
+          "website": "https://citystay.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "HITrental",
+          "website": "https://www.hitrental.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "Cosmopolitan Apartments",
+          "website": "https://www.cosmopolitan-apartments.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "I want a 3-day leisure itinerary in Zurich. What are the best aparthotels with early check-in options?",
+      "competitors": [
+        {
+          "name": "EMA House Hotel Suites",
+          "website": "https://www.emahouse.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Aparthotel Adagio Zurich City Center",
+          "website": "https://www.adagio-city.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "The Flag Zürich",
+          "website": "https://www.theflag-zuerich.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Numa Zurich Craft",
+          "website": "https://numastays.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 2
+          }
+        },
+        {
+          "name": "Hitrental",
+          "website": "https://www.hitrental.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "Zurich Furnished Homes",
+          "website": "https://www.zurich-furnished-homes.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "City Stay Apartments",
+          "website": "https://www.citystay.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Residence Business Appartements",
+          "website": "https://www.residence-business.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "INSIDE FIVE - City Apartments",
+          "website": "https://www.insidefive.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "What are the best boutique hotels near Lake Zurich for a romantic getaway?",
+      "competitors": [
+        {
+          "name": "La Réserve Eden au Lac Zurich",
+          "website": "https://lareserve-zurich.com",
+          "ranking": {
+            "google": 1,
+            "perplexity": 4,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "Signau House & Garden",
+          "website": "https://signauhouse.com",
+          "ranking": {
+            "google": 2,
+            "perplexity": 8,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "Alex Lake Zürich",
+          "website": "https://alexlakezurich.com",
+          "ranking": {
+            "google": 3,
+            "perplexity": null,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "Storchen Zürich",
+          "website": "https://storchen.ch",
+          "ranking": {
+            "google": 4,
+            "perplexity": 2,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Boutiquehotel Sonne Küsnacht",
+          "website": "https://sonne.ch",
+          "ranking": {
+            "google": 5,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Sorell Hotel Zürichberg",
+          "website": "https://sorellhotels.com",
+          "ranking": {
+            "google": 6,
+            "perplexity": 9,
+            "chatgpt": 8
+          }
+        },
+        {
+          "name": "Alma Hotel",
+          "website": "https://almahotel.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": 2
+          }
+        },
+        {
+          "name": "The Dolder Grand",
+          "website": "https://thedoldergrand.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 5,
+            "chatgpt": 9
+          }
+        },
+        {
+          "name": "Hotel NI-MO",
+          "website": "https://hotel-nimo.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 7,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Hotel Seegarten",
+          "website": "https://seegarten.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "Helvetia",
+          "website": "https://hotel-helvetia.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 10
+          }
+        },
+        {
+          "name": "Alden Suite Hotel Splügenschloss",
+          "website": "https://leonardo-hotels.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "I am traveling to Zurich for work. Where can I find modern serviced apartments with a local vibe?",
+      "competitors": [
+        {
+          "name": "EMA House",
+          "website": "https://www.ema-house.ch",
+          "ranking": {
+            "google": 1,
+            "perplexity": 1,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "VISIONAPARTMENTS",
+          "website": "https://www.visionapartments.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Acasa Suites",
+          "website": "https://www.acasasuites.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": 8
+          }
+        },
+        {
+          "name": "Blueground",
+          "website": "https://www.theblueground.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 4,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Radisson Hotel & Suites",
+          "website": "https://www.radissonhotels.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 5,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Numa",
+          "website": "https://numastays.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Hitrental",
+          "website": "https://hitrental.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Zuerich Apartments",
+          "website": "https://www.booking.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "Lamira",
+          "website": "https://www.vrbo.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "Aparthotel Adagio",
+          "website": "https://www.adagio-city.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 9
+          }
+        },
+        {
+          "name": "INSIDE FIVE",
+          "website": "https://www.insidefive.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 10
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "Which hotels in Zurich offer the smoothest digital check-in for busy travelers?",
+      "competitors": [
+        {
+          "name": "Hyatt Regency Airport",
+          "website": "https://www.hyatt.com",
+          "ranking": {
+            "google": 1,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "citizenM Zurich",
+          "website": "https://www.citizenm.com",
+          "ranking": {
+            "google": 2,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Ruby Mimi",
+          "website": "https://www.ruby-hotels.com",
+          "ranking": {
+            "google": 3,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Zoku Zurich",
+          "website": "https://livezoku.com",
+          "ranking": {
+            "google": 4,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Hotel Welcome Inn",
+          "website": "https://www.welcomehotels.ch",
+          "ranking": {
+            "google": 5,
+            "perplexity": 3,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Hotel Montana",
+          "website": "https://hotelmontana-zurich.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": 9
+          }
+        },
+        {
+          "name": "Fred Hotels",
+          "website": "https://fredhotels.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "Guest House Hermes",
+          "website": "https://guesthouse-hermes.hotels-zurich.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 4,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Delta City Hotels",
+          "website": "https://deltacity.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 5,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "Hotel Becozy",
+          "website": "https://www.becozy.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 6,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "easyHotel Zürich City Centre",
+          "website": "https://www.easyhotel.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "City Pop 2Night Zürich City",
+          "website": "https://citypop.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Hotel Sleep & Go",
+          "website": "https://sleep-go.hotels-zurich.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "Hotel Allegra Lodge",
+          "website": "https://www.welcomehotels.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "Looking for a quiet apartment-style hotel in Zurich for a solo retreat. Any recommendations?",
+      "competitors": [
+        {
+          "name": "EMA House Hotel Suites",
+          "website": "https://emahouse.ch",
+          "ranking": {
+            "google": 1,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "APARTHOTEL Zürich",
+          "website": "https://www.aparthotel-zuerich.ch",
+          "ranking": {
+            "google": 2,
+            "perplexity": null,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "Aparthotel Adagio Zurich City Center",
+          "website": "https://all.accor.com",
+          "ranking": {
+            "google": 3,
+            "perplexity": 5,
+            "chatgpt": 2
+          }
+        },
+        {
+          "name": "Acasa Suites",
+          "website": "https://www.acasa.ch",
+          "ranking": {
+            "google": 4,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Signau House & Garden",
+          "website": "https://signauhouse.ch",
+          "ranking": {
+            "google": 5,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Alma Hotel",
+          "website": "https://almahotel.ch",
+          "ranking": {
+            "google": 6,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Greulich Design & Boutique Hotel",
+          "website": "https://greulich.ch",
+          "ranking": {
+            "google": 7,
+            "perplexity": null,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "The Henry Self Check-In Guesthouse",
+          "website": "https://thehenry.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Numa",
+          "website": "https://numastays.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "City Stay",
+          "website": "https://www.citystay.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Locke am Platz",
+          "website": "https://www.lockeliving.com",
+          "ranking": {
+            "google": null,
+            "perplexity": 4,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Senioren-Residenz Segeten",
+          "website": "https://www.segeten.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 6,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Alden Suite Hotel Splügenschloss",
+          "website": "https://www.alden-hotel.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 8,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Hotel Schweizerhof Zürich",
+          "website": "https://www.schweizerhof-zuerich.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": 9,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Zurich Furnished Homes",
+          "website": "https://www.zurich-furnished-homes.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "Hitrental",
+          "website": "https://hitrental.com",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Guggach",
+          "website": "https://guggach.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "iQ130.HOTEL",
+          "website": "https://iq130.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        },
+        {
+          "name": "Residence Business Appartements",
+          "website": "https://www.residence-zuerich.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 9
+          }
+        },
+        {
+          "name": "INSIDE FIVE - City Apartments",
+          "website": "https://www.insidefive.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 10
+          }
+        },
+        {
+          "name": "Zuerich Apartments Weinbergstrasse",
+          "website": "https://www.zuerich-apartments.ch",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 11
+          }
+        }
+      ]
+    },
+    {
+      "search_query": "Where should a couple stay in Zurich for easy access to the lake and local city life?",
+      "competitors": [
+        {
+          "name": "Locke am Platz Enge",
+          "website": "https://www.lockeliving.com/en/zurich/locke-am-platz-enge",
+          "ranking": {
+            "google": null,
+            "perplexity": 1,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Ameron Zürich Bellerive au Lac",
+          "website": "https://www.ameronhotels.com/en/zuerich-bellerive-au-lac",
+          "ranking": {
+            "google": null,
+            "perplexity": 2,
+            "chatgpt": 2
+          }
+        },
+        {
+          "name": "La Réserve Eden au Lac Zurich",
+          "website": "https://www.lareserve-zurich.com/",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": 3
+          }
+        },
+        {
+          "name": "Storchen Zürich",
+          "website": "https://storchen.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": 3,
+            "chatgpt": 6
+          }
+        },
+        {
+          "name": "Zurich Marriott Hotel",
+          "website": "https://www.marriott.com/en-us/hotels/zrhdt-zurich-marriott-hotel/",
+          "ranking": {
+            "google": null,
+            "perplexity": 4,
+            "chatgpt": null
+          }
+        },
+        {
+          "name": "Baur au Lac",
+          "website": "https://www.bauraulac.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": 5,
+            "chatgpt": 1
+          }
+        },
+        {
+          "name": "The Dolder Grand",
+          "website": "https://www.thedoldergrand.com/",
+          "ranking": {
+            "google": null,
+            "perplexity": 6,
+            "chatgpt": 11
+          }
+        },
+        {
+          "name": "Alma Hotel",
+          "website": "https://www.almahotel.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 4
+          }
+        },
+        {
+          "name": "Hotel Seegarten",
+          "website": "https://www.hotel-seegarten.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 5
+          }
+        },
+        {
+          "name": "Park Hyatt Zurich",
+          "website": "https://www.hyatt.com/en-US/hotel/switzerland/park-hyatt-zurich/zrhph",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 7
+          }
+        },
+        {
+          "name": "B2 Hotel Zürich",
+          "website": "https://www.b2boutiquehotels.com/",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 8
+          }
+        },
+        {
+          "name": "Neues Schloss Privat Hotel Zurich",
+          "website": "https://www.neues-schloss-privat-hotel.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 9
+          }
+        },
+        {
+          "name": "Ambassador Zurich Hotel",
+          "website": "https://www.ambassadorhotel.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 10
+          }
+        },
+        {
+          "name": "Hotel Europe",
+          "website": "https://www.hoteleurope-zuerich.ch/",
+          "ranking": {
+            "google": null,
+            "perplexity": null,
+            "chatgpt": 10
+          }
+        }
+      ]
+    }
+  ],
+  "visibility_score": {
+    "overall": 23.51,
+    "per_engine": {
+      "google": 18.51,
+      "perplexity": 40.6,
+      "chatgpt": 11.43
+    },
+    "per_query": [
+      {
+        "query": "I need a 3-day Zurich itinerary for a couple. Where is a stylish aparthotel near Lake Zurich?",
+        "google": 25.0,
+        "perplexity": 100.0,
+        "chatgpt": 16.67,
+        "average": 47.22
+      },
+      {
+        "query": "Plan a 4-day business trip to Zurich. Where can I find flexible apartment-style lodging?",
+        "google": 16.67,
+        "perplexity": 0.0,
+        "chatgpt": 11.11,
+        "average": 9.26
+      },
+      {
+        "query": "Design a 2-day Zurich weekend itinerary. Suggest a hotel with easy online check-in.",
+        "google": 50.0,
+        "perplexity": 50.0,
+        "chatgpt": 10.0,
+        "average": 36.67
+      },
+      {
+        "query": "Create a 5-day long-term stay guide for Zurich. Where should I book a serviced apartment?",
+        "google": 0.0,
+        "perplexity": 25.0,
+        "chatgpt": 16.67,
+        "average": 13.89
+      },
+      {
+        "query": "I want a 3-day leisure itinerary in Zurich. What are the best aparthotels with early check-in options?",
+        "google": 0.0,
+        "perplexity": 25.0,
+        "chatgpt": 12.5,
+        "average": 12.5
+      },
+      {
+        "query": "What are the best boutique hotels near Lake Zurich for a romantic getaway?",
+        "google": 14.29,
+        "perplexity": 12.5,
+        "chatgpt": 9.09,
+        "average": 11.96
+      },
+      {
+        "query": "I am traveling to Zurich for work. Where can I find modern serviced apartments with a local vibe?",
+        "google": 50.0,
+        "perplexity": 16.67,
+        "chatgpt": 11.11,
+        "average": 25.93
+      },
+      {
+        "query": "Which hotels in Zurich offer the smoothest digital check-in for busy travelers?",
+        "google": 16.67,
+        "perplexity": 14.29,
+        "chatgpt": 11.11,
+        "average": 14.02
+      },
+      {
+        "query": "Looking for a quiet apartment-style hotel in Zurich for a solo retreat. Any recommendations?",
+        "google": 12.5,
+        "perplexity": 62.5,
+        "chatgpt": 8.33,
+        "average": 27.78
+      },
+      {
+        "query": "Where should a couple stay in Zurich for easy access to the lake and local city life?",
+        "google": 0.0,
+        "perplexity": 100.0,
+        "chatgpt": 7.69,
+        "average": 35.9
+      }
+    ]
+  },
+  "pr_blueprint": {
+    "narrative": "Locke Am Platz maintains visibility for niche lifestyle queries but currently struggles to capture broader, intent-driven itinerary traffic due to missing data on essential amenities like dining, wellness, and workspaces. To increase AI citations, we must strategically populate these data gaps across our owned digital footprint while simultaneously securing inclusion in high-authority third-party itinerary guides that serve as the foundational training data for AI models.",
+    "top_cited_sources": [
+      "tripadvisor.com",
+      "booking.com",
+      "zuerich.com",
+      "expedia.com",
+      "silverdoor.com",
+      "theblueground.com"
+    ],
+    "actions": [
+      {
+        "priority": "high",
+        "action": "Develop comprehensive 'Work-Stay' and 'Wellness' landing pages on the Locke website.",
+        "why_it_matters": "AI assistants require structured, explicit data to answer queries about amenities; currently, these gaps exclude the hotel from business and wellness itinerary searches.",
+        "story_angle": "Redefining the Zurich business-leisure stay with seamless coworking and local wellness integration.",
+        "target_sources": [
+          "lockeliving.com",
+          "industry-travel-blogs.com"
+        ],
+        "expected_outcome": "Improved retrieval-augmented generation (RAG) performance in AI answers regarding 'modern serviced apartments' and 'work-friendly hotels'."
+      },
+      {
+        "priority": "high",
+        "action": "Execute a PR campaign targeting 'Best 3-day Zurich itinerary' publishers.",
+        "why_it_matters": "AI models heavily weight existing, high-traffic editorial content when synthesizing itinerary recommendations; we need to be embedded in the existing discourse.",
+        "story_angle": "The stylish home base: Why Locke Am Platz is the ultimate hub for a curated 3-day Zurich escape.",
+        "target_sources": [
+          "thewanderbug.com",
+          "livelybylaura.com",
+          "maddysavenue.com"
+        ],
+        "expected_outcome": "Inclusion in at least 3 high-ranking, AI-indexed 'Zurich Itinerary' listicles."
+      },
+      {
+        "priority": "medium",
+        "action": "Update OTA and review site descriptions to emphasize digital check-in and proximity to Lake Zurich.",
+        "why_it_matters": "Platforms like Tripadvisor and Booking.com are top-cited sources for AI; ensuring these listings reflect our 'easy check-in' and 'lake location' strengths is critical for ranking.",
+        "story_angle": "Streamlined city living: The new standard for tech-enabled hospitality in Zurich.",
+        "target_sources": [
+          "tripadvisor.com",
+          "booking.com",
+          "expedia.com"
+        ],
+        "expected_outcome": "Increased visibility in AI search results for 'fast check-in hotels' and 'best hotels near lake Zurich'."
+      },
+      {
+        "priority": "medium",
+        "action": "Forge a partnership with local Zurich tourism influencers for video content.",
+        "why_it_matters": "YouTube is a primary source for AI; visual evidence of the 'local vibe' and apartment layout helps AI validate the property for leisure travelers.",
+        "story_angle": "A local’s guide to living in Zurich: Behind the scenes at Locke Am Platz.",
+        "target_sources": [
+          "youtube.com",
+          "zuerich.com"
+        ],
+        "expected_outcome": "Greater frequency of property citations in YouTube-sourced AI itinerary summaries."
+      },
+      {
+        "priority": "low",
+        "action": "Submit 'Long-Term Stay' content to serviced apartment directory sites.",
+        "why_it_matters": "Competing against established players like EMA House requires being cited in the specific directories AI models consult for 'long-term' or 'serviced apartment' queries.",
+        "story_angle": "The evolution of the apartment-hotel: Why digital nomads are choosing Locke for long-term Zurich stays.",
+        "target_sources": [
+          "silverdoor.com",
+          "theblueground.com",
+          "aparthotelshq.com"
+        ],
+        "expected_outcome": "Enhanced ranking for 'long-term stay' and 'serviced apartment' queries in ChatGPT and Perplexity."
+      }
+    ]
   },
   "queries": [
-    "best web scraping tools for large scale data extraction",
-    "Apify vs Bright Data for enterprise web automation",
-    "how to automate website data collection with serverless actors",
-    "top alternatives to Apify for python web scraping",
-    "scalable web scraping platforms for e-commerce product data",
-    "how to scrape dynamic websites without getting blocked",
-    "best cloud platform for building and hosting web scrapers",
-    "compare apify and scrapestack for data mining projects",
-    "enterprise solutions for automated data extraction and parsing",
-    "tools for automating manual web processes and workflows"
+    "I need a 3-day Zurich itinerary for a couple. Where is a stylish aparthotel near Lake Zurich?",
+    "Plan a 4-day business trip to Zurich. Where can I find flexible apartment-style lodging?",
+    "Design a 2-day Zurich weekend itinerary. Suggest a hotel with easy online check-in.",
+    "Create a 5-day long-term stay guide for Zurich. Where should I book a serviced apartment?",
+    "I want a 3-day leisure itinerary in Zurich. What are the best aparthotels with early check-in options?",
+    "What are the best boutique hotels near Lake Zurich for a romantic getaway?",
+    "I am traveling to Zurich for work. Where can I find modern serviced apartments with a local vibe?",
+    "Which hotels in Zurich offer the smoothest digital check-in for busy travelers?",
+    "Looking for a quiet apartment-style hotel in Zurich for a solo retreat. Any recommendations?",
+    "Where should a couple stay in Zurich for easy access to the lake and local city life?"
   ],
   "query_source": "generated",
-  "discovery_source": "llms.txt"
+  "discovery_source": "website_crawl"
 }

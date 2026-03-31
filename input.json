@@ -1,26 +1,45 @@
 {
-  "url": "https://www.apify.com/",
+  "url": "https://www.lockeliving.com/en/zurich/locke-am-platz",
   "business_profile": {
-    "business_name": "Apify",
-    "business_type": "local_experience",
-    "city": "Prague",
-    "country": "Czech Republic",
-    "traveler_personas": ["Tech-savvy travelers", "Business travelers"],
+    "business_name": "Locke Am Platz",
+    "business_type": "hotel",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "traveler_personas": [
+      "business travelers",
+      "couples",
+      "long-term stayers",
+      "leisure travelers"
+    ],
     "signature_offers": [
-      "Web scraping automation platform",
-      "Ready-made actor marketplace"
+      "aparthotel accommodations",
+      "flexible early check-in options",
+      "streamlined online check-in"
     ],
     "strengths": [
-      "Strong developer ecosystem",
-      "Reliable automation infrastructure"
+      "prime location near Lake Zurich",
+      "flexible apartment-style living",
+      "convenient digital check-in procedures"
     ],
-    "gaps": ["Limited explicit travel itinerary positioning"]
+    "gaps": [
+      "lack of specific onsite dining details",
+      "unspecified fitness or wellness facilities",
+      "missing information on meeting or coworking spaces"
+    ]
   },
   "search_queries": [
-    "best 3-day itinerary in prague for tech and startup culture",
-    "weekend itinerary in prague with modern museums and local food",
-    "business traveler prague itinerary near innovation hubs"
+    "I need a 3-day Zurich itinerary for a couple. Where is a stylish aparthotel near Lake Zurich?",
+    "Plan a 4-day business trip to Zurich. Where can I find flexible apartment-style lodging?",
+    "Design a 2-day Zurich weekend itinerary. Suggest a hotel with easy online check-in.",
+    "Create a 5-day long-term stay guide for Zurich. Where should I book a serviced apartment?",
+    "I want a 3-day leisure itinerary in Zurich. What are the best aparthotels with early check-in options?",
+    "What are the best boutique hotels near Lake Zurich for a romantic getaway?",
+    "I am traveling to Zurich for work. Where can I find modern serviced apartments with a local vibe?",
+    "Which hotels in Zurich offer the smoothest digital check-in for busy travelers?",
+    "Looking for a quiet apartment-style hotel in Zurich for a solo retreat. Any recommendations?",
+    "Where should a couple stay in Zurich for easy access to the lake and local city life?"
   ],
   "query_source": "generated",
-  "discovery_source": "llms.txt"
+  "discovery_source": "website_crawl",
+  "supporting_urls": ["https://www.lockeliving.com/en/zurich/locke-am-platz"]
 }
