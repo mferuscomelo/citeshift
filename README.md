@@ -48,12 +48,14 @@ The **Share of Voice** view compares your visibility with direct competitors and
 
 ### How It Works
 
-1. **Input:** You enter your company URL and a set of high-value industry queries (e.g., "Best web scraping tools for developers").
-2. **Data Collection:** CiteShift goes to work, collecting AI-generated answers from search-integrated LLM systems via Apify Actors (covering Google AI mode, Perplexity, and ChatGPT-integrated search).
-3. **AI Analysis:** Gemini acts as the reasoning engine to extract competitors, evaluate ranking positions per query, and cross-reference mentions across all engines.
-4. **Scoring:** CiteShift calculates the Visibility Score for you and your competitors.
-5. **Source & llms.txt Analysis:** The system maps the exact URLs driving the AI answers and checks your domain’s `/llms.txt` file for LLM-readiness.
-6. **Insights Delivery:** A structured report and visual dashboard present the intelligence, showing exactly where you are losing out and how to fix it.
+1. **Input:** You enter your company URL and optionally a list of search queries.
+2. **Industry & Product Discovery:** CiteShift inspects your `llms.txt` first (if available) and falls back to crawling your website to infer your product category and market context.
+3. **Query Selection:** If input queries are provided, CiteShift uses them directly. Otherwise, Gemini generates high-value industry queries automatically from the discovered context.
+4. **Data Collection:** CiteShift collects AI-generated answers from search-integrated LLM systems via Apify Actors (Google AI mode, Perplexity, and ChatGPT-integrated search).
+5. **AI Analysis:** Gemini extracts competitors, evaluates ranking positions per query, and cross-references mentions across all engines.
+6. **Scoring:** CiteShift calculates the Visibility Score for you and your competitors.
+7. **Source & llms.txt Analysis:** The system maps the exact URLs driving the AI answers and checks your domain’s `/llms.txt` file for LLM-readiness.
+8. **Insights Delivery:** A structured report and visual dashboard present the intelligence, showing exactly where you are losing out and how to fix it.
 
 ### Technical Architecture
 
@@ -146,15 +148,15 @@ USE_CACHE=false
 
 ### 3. Change the actor input
 
-Edit [input.json](input.json) with your own target domain and query set:
+Edit [input.json](input.json) with your own target domain. Optionally include `search_queries` to override auto-generation:
 
 ```json
 {
-	"url": "https://your-domain.com/",
-	"search_queries": [
-		"best tools in your category",
-		"top alternatives for your product type"
-	]
+  "url": "https://your-domain.com/",
+  "search_queries": [
+    "best tools in your category",
+    "top alternatives for your product type"
+  ]
 }
 ```
 
@@ -168,4 +170,4 @@ apify run --input-file input.json
 
 After a run, the actor writes the final analysis to [report.json](report.json).
 
-This repository already includes a test report at [report.json](report.json), generated from the sample queries in [input.json](input.json), so you can review the expected output structure immediately.
+This repository already includes a test report at [report.json](report.json), generated from sample URL input in [input.json](input.json), so you can review the expected output structure immediately.

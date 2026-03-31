@@ -17,7 +17,7 @@ from google.genai.types import (
     GenerateContentConfig,
     GoogleSearch,
 )
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, field_validator
 from typing import List, Optional, Any, Literal
 from dotenv import load_dotenv
 from urllib.parse import urlparse, urlunparse
@@ -39,6 +39,10 @@ COMPETITOR_ANALYSIS_PROMPT_TEMPLATE = (
 LLMS_TXT_ANALYSIS_PROMPT_TEMPLATE = (
     Path(__file__).parent / "prompts/llms_txt_analysis.txt"
 ).read_text()
+QUERY_GENERATION_PROMPT_TEMPLATE = (
+    Path(__file__).parent / "prompts/query_generation.txt"
+).read_text()
+GENERATED_QUERY_COUNT = 10
 
 NAV_SELECTORS = [
     "nav",
@@ -236,6 +240,44 @@ class SourcesAnalysis(BaseModel):
     sources: List[SourceUrl]
 
 
+class ActorInput(BaseModel):
+    url: str
+    search_queries: Optional[List[str]] = None
+
+    @field_validator("url")
+    @classmethod
+    def validate_url(cls, value: str) -> str:
+        if not value or not value.strip():
+            raise ValueError('Missing "url" attribute in input!')
+
+        normalized = value.strip()
+        if "://" not in normalized:
+            normalized = f"https://{normalized}"
+
+        parsed = urlparse(normalized)
+        if not parsed.scheme or not parsed.netloc:
+            raise ValueError(f'Invalid "url" attribute in input: {value}')
+
+        return normalized.rstrip("/")
+
+    @field_validator("search_queries")
+    @classmethod
+    def validate_search_queries(cls, value: Optional[List[str]]) -> Optional[List[str]]:
+        if value is None:
+            return None
+        if not isinstance(value, list):
+            raise ValueError(
+                'Invalid "search_queries" attribute in input: expected array of strings'
+            )
+        return value
+
+
+class GeneratedQueries(BaseModel):
+    queries: List[str] = Field(
+        description=f"Exactly {GENERATED_QUERY_COUNT} generated search queries"
+    )
+
+
 gemini_client = GeminiClient(api_key=os.getenv("GEMINI_API_KEY"))
 apify_client = ApifyClient(token=os.getenv("APIFY_TOKEN"))
 
@@ -394,8 +436,9 @@ def get_llms_txt(url: str) -> Optional[str]:
     if not url:
         raise ValueError('Missing "url" value.')
 
-    with httpx.Client(follow_redirects=True) as client:
-        response = client.get(f"{url}/llms.txt")
+    with httpx.Client(follow_redirects=True, timeout=10.0) as client:
+        llms_url = f"{url.rstrip('/')}/llms.txt"
+        response = client.get(llms_url)
         if response.status_code == 200:
             Actor.log.info(f"Successfully fetched llms.txt from {url}")
             return response.text
@@ -410,7 +453,20 @@ def analyze_llms_txt(llms_txt: str) -> LLMsTxtAnalysis:
     Actor.log.info("Analyzing llms.txt content")
 
     if not llms_txt:
-        raise ValueError('Missing "llms_txt" value.')
+        return LLMsTxtAnalysis(
+            summary=LLMsTxtSummary(
+                name="unknown",
+                description="No llms.txt content available.",
+                urls=[],
+            ),
+            score=0,
+            gap_analysis=LLMsTxtGapAnalysis(
+                gaps=["llms.txt file not found or empty"],
+                recommendations=[
+                    "Create a compliant llms.txt file with product summary and key documentation links"
+                ],
+            ),
+        )
 
     prompt = LLMS_TXT_ANALYSIS_PROMPT_TEMPLATE.format(
         llms_txt=llms_txt,
@@ -617,11 +673,147 @@ def get_source_urls(
     return classified
 
 
+def _normalize_generated_queries(
+    queries: List[str], url: str, query_count: int = GENERATED_QUERY_COUNT
+) -> List[str]:
+    normalized: list[str] = []
+    seen: set[str] = set()
+
+    for query in queries:
+        candidate = " ".join((query or "").strip().split())
+        key = candidate.lower()
+        if not candidate or key in seen:
+            continue
+        seen.add(key)
+        normalized.append(candidate)
+
+    domain = to_registrable_domain(url) or "this product"
+    fallback_queries = [
+        f"best {domain} alternatives",
+        f"top tools like {domain}",
+        f"{domain} competitors",
+        f"{domain} pricing alternatives",
+        f"best tools for teams like {domain}",
+        f"compare {domain} vs competitors",
+        f"enterprise alternatives to {domain}",
+        f"best platforms similar to {domain}",
+        f"{domain} use cases for businesses",
+        f"which tool is better than {domain}",
+    ]
+
+    for fallback_query in fallback_queries:
+        if len(normalized) >= query_count:
+            break
+        key = fallback_query.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        normalized.append(fallback_query)
+
+    return normalized[:query_count]
+
+
+def _normalize_input_queries(queries: Optional[List[str]]) -> List[str]:
+    if not queries:
+        return []
+
+    normalized: list[str] = []
+    seen: set[str] = set()
+    for query in queries:
+        candidate = " ".join((query or "").strip().split())
+        key = candidate.lower()
+        if not candidate or key in seen:
+            continue
+        seen.add(key)
+        normalized.append(candidate)
+
+    return normalized
+
+
+def discover_query_context(
+    url: str, llms_txt_analysis: LLMsTxtAnalysis
+) -> tuple[str, str, List[str]]:
+    summary = llms_txt_analysis.summary
+    if summary.name.lower() != "unknown" or summary.urls:
+        context = (
+            f"Product: {summary.name}\n"
+            f"Description: {summary.description}\n"
+            f"Industry hints: derived from llms.txt summary"
+        )
+        return "llms.txt", context, summary.urls
+
+    try:
+        website_content = scrape_website(url)
+        markdown = (website_content.get("markdown") or "").strip()
+        text_excerpt = "\n".join(markdown.splitlines()[:40])
+        crawl_context = (
+            "Product and industry inferred from homepage crawl content.\n"
+            f"Crawl excerpt:\n{text_excerpt[:4000]}"
+        )
+        crawl_url = website_content.get("url") or url
+        return "website_crawl", crawl_context, [crawl_url]
+    except Exception as error:
+        Actor.log.warning(f"Website crawl fallback failed: {error}")
+
+    fallback_context = (
+        "Could not retrieve llms.txt or crawl data. "
+        "Infer product and industry from the brand URL only."
+    )
+    return "url_only", fallback_context, [url]
+
+
+def generate_search_queries(
+    url: str,
+    discovery_source: str,
+    discovery_context: str,
+    supporting_urls: List[str],
+    query_count: int = GENERATED_QUERY_COUNT,
+) -> List[str]:
+    Actor.log.info(
+        f"Generating {query_count} search queries using discovery source: {discovery_source}"
+    )
+
+    prompt = QUERY_GENERATION_PROMPT_TEMPLATE.format(
+        url=url,
+        query_count=query_count,
+        discovery_source=discovery_source,
+        discovery_context=discovery_context,
+        supporting_urls="\n".join(supporting_urls) if supporting_urls else "N/A",
+    )
+
+    try:
+        response = gemini_client.models.generate_content(
+            model="gemini-3.1-flash-lite-preview",
+            contents=prompt,
+            config=GenerateContentConfig(
+                response_mime_type="application/json",
+                response_json_schema=GeneratedQueries.model_json_schema(),
+            ),
+        )
+
+        if not response.text:
+            raise RuntimeError("Gemini query generation returned no text.")
+
+        generated = GeneratedQueries.model_validate_json(response.text)
+        normalized = _normalize_generated_queries(generated.queries, url, query_count)
+        if len(normalized) < query_count:
+            Actor.log.warning(
+                f"Generated only {len(normalized)} unique queries; filling with fallback variants"
+            )
+        return _normalize_generated_queries(normalized, url, query_count)
+    except Exception as error:
+        Actor.log.warning(f"Failed to generate queries with Gemini: {error}")
+        return _normalize_generated_queries([], url, query_count)
+
+
 class Report(BaseModel):
     llms_txt_analysis: LLMsTxtAnalysis
     sources_analysis: SourcesAnalysis
     competitor_rankings: List[CompetitorRanking]
     visibility_score: VisibilityScore
+    queries: List[str]
+    query_source: str
+    discovery_source: str
 
 
 async def main() -> None:
@@ -630,19 +822,14 @@ async def main() -> None:
             f"Starting CiteShift Actor run (cache {'enabled' if USE_CACHE else 'disabled'})"
         )
 
-        actor_input = await Actor.get_input()
+        actor_input = ActorInput.model_validate(await Actor.get_input() or {})
 
-        url = actor_input.get("url")
-        search_queries = actor_input.get("search_queries")
+        url = actor_input.url
+        input_search_queries = _normalize_input_queries(actor_input.search_queries)
 
         Actor.log.info(
-            f"Actor input received: url={url}, search_queries={search_queries}"
+            f"Actor input received: url={url}, search_queries_count={len(input_search_queries)}"
         )
-
-        if not url:
-            raise ValueError('Missing "url" attribute in input!')
-        if not search_queries:
-            raise ValueError('Missing "search_queries" attribute in input!')
 
         # ANALYZE LLMS.TXT
         llms_txt = get_llms_txt(url) or ""
@@ -652,6 +839,37 @@ async def main() -> None:
             f"Gaps: {', '.join(llms_txt_analysis.gap_analysis.gaps)}\n"
             f"Recommendations: {', '.join(llms_txt_analysis.gap_analysis.recommendations)}"
         )
+
+        query_source = "input"
+        discovery_source = "n/a"
+        search_queries = input_search_queries
+
+        if search_queries:
+            Actor.log.info(
+                f"Using {len(search_queries)} user-provided search queries from input"
+            )
+        else:
+            query_source = "generated"
+            discovery_source, discovery_context, supporting_urls = (
+                discover_query_context(
+                    url=url,
+                    llms_txt_analysis=llms_txt_analysis,
+                )
+            )
+            Actor.log.info(
+                f"Discovery source used for query generation: {discovery_source}"
+            )
+
+            search_queries = generate_search_queries(
+                url=url,
+                discovery_source=discovery_source,
+                discovery_context=discovery_context,
+                supporting_urls=supporting_urls,
+                query_count=GENERATED_QUERY_COUNT,
+            )
+            Actor.log.info(
+                f"Generated {len(search_queries)} search queries: {search_queries}"
+            )
 
         search_results: list[SearchResult] = []
         competitor_rankings: list[CompetitorRanking] = []
@@ -705,6 +923,9 @@ async def main() -> None:
             ),
             competitor_rankings=competitor_rankings,
             visibility_score=visibility_score,
+            queries=search_queries,
+            query_source=query_source,
+            discovery_source=discovery_source,
         )
 
         report_path = Path("report.json")

@@ -7,26 +7,22 @@
     "url": {
       "title": "URL of the brand website",
       "type": "string",
-      "description": "The URL of website",
+      "description": "The target website URL used to infer product/industry and auto-generate search queries",
       "editor": "textfield",
-      "prefill": "https://www.apify.com/"
+      "prefill": "https://www.apify.com/",
+      "default": "https://www.apify.com/"
     },
-    "search_query": {
-      "title": "Search Queries",
+    "search_queries": {
+      "title": "Search Queries (Optional)",
       "type": "array",
-      "description": "The search queries to use when looking up citations",
+      "description": "Optional list of search queries. If omitted, CiteShift auto-generates queries from the website.",
       "editor": "stringList",
-      "prefill": [
-        "best lead scraping tools"
-      ],
-      "default": [
-        "best lead scraping tools"
-      ],
+      "default": [],
       "items": {
         "type": "string"
       },
-      "minItems": 1
+      "minItems": 0
     }
   },
-  "required": ["url", "search_query"]
+  "required": ["url"]
 }
