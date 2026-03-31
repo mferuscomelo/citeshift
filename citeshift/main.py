@@ -1,6 +1,7 @@
 from __future__ import annotations
 from collections import Counter
 from pathlib import Path
+import json
 
 # Apify SDK - A toolkit for building Apify Actors. Read more at:
 # https://docs.apify.com/sdk/python
@@ -39,32 +40,9 @@ COMPETITOR_ANALYSIS_PROMPT_TEMPLATE = (
 LLMS_TXT_ANALYSIS_PROMPT_TEMPLATE = (
     Path(__file__).parent / "prompts/llms_txt_analysis.txt"
 ).read_text()
-QUERY_GENERATION_PROMPT_TEMPLATE = (
-    Path(__file__).parent / "prompts/query_generation.txt"
+PR_BLUEPRINT_PROMPT_TEMPLATE = (
+    Path(__file__).parent / "prompts/pr_blueprint.txt"
 ).read_text()
-GENERATED_QUERY_COUNT = 10
-
-NAV_SELECTORS = [
-    "nav",
-    "[role=navigation]",
-    ".nav",
-    ".navbar",
-    ".menu",
-    ".header",
-]
-
-FOOTER_SELECTORS = [
-    "footer",
-    ".footer",
-    "#footer",
-]
-
-BAD_PREFIXES = (
-    "mailto:",
-    "tel:",
-    "javascript:",
-    "#",
-)
 
 OPERATED_DOMAINS = (
     "github.com",
@@ -197,12 +175,6 @@ class LLMsTxtAnalysis(BaseModel):
     )
 
 
-class URLSelection(BaseModel):
-    relevant_urls: List[str] = Field(
-        description="List of relevant URLs that should be kept for further analysis"
-    )
-
-
 class SourceUrl(BaseModel):
     url: str
     domain: str
@@ -242,7 +214,10 @@ class SourcesAnalysis(BaseModel):
 
 class ActorInput(BaseModel):
     url: str
-    search_queries: Optional[List[str]] = None
+    business_profile: "BusinessProfile"
+    search_queries: List[str]
+    query_source: Optional[str] = None
+    discovery_source: Optional[str] = None
 
     @field_validator("url")
     @classmethod
@@ -262,20 +237,56 @@ class ActorInput(BaseModel):
 
     @field_validator("search_queries")
     @classmethod
-    def validate_search_queries(cls, value: Optional[List[str]]) -> Optional[List[str]]:
-        if value is None:
-            return None
-        if not isinstance(value, list):
+    def validate_search_queries(cls, value: List[str]) -> List[str]:
+        normalized: list[str] = []
+        seen: set[str] = set()
+        for query in value:
+            candidate = " ".join((query or "").strip().split())
+            key = candidate.lower()
+            if not candidate or key in seen:
+                continue
+            seen.add(key)
+            normalized.append(candidate)
+
+        if not normalized:
             raise ValueError(
-                'Invalid "search_queries" attribute in input: expected array of strings'
+                '"search_queries" must contain at least one non-empty query'
             )
-        return value
+
+        return normalized
 
 
-class GeneratedQueries(BaseModel):
-    queries: List[str] = Field(
-        description=f"Exactly {GENERATED_QUERY_COUNT} generated search queries"
-    )
+class BusinessProfile(BaseModel):
+    business_name: str
+    business_type: Literal[
+        "hotel",
+        "restaurant",
+        "museum",
+        "local_experience",
+        "mixed_hospitality",
+        "unknown",
+    ]
+    city: Optional[str] = None
+    country: Optional[str] = None
+    traveler_personas: List[str] = Field(default_factory=list)
+    signature_offers: List[str] = Field(default_factory=list)
+    strengths: List[str] = Field(default_factory=list)
+    gaps: List[str] = Field(default_factory=list)
+
+
+class PRBlueprintAction(BaseModel):
+    priority: Literal["high", "medium", "low"]
+    action: str
+    why_it_matters: str
+    story_angle: str
+    target_sources: List[str]
+    expected_outcome: str
+
+
+class PRBlueprint(BaseModel):
+    narrative: str
+    top_cited_sources: List[str]
+    actions: List[PRBlueprintAction]
 
 
 gemini_client = GeminiClient(api_key=os.getenv("GEMINI_API_KEY"))
@@ -298,55 +309,6 @@ def get_search_result_cache_path(search_query: str) -> Path:
 
     safe_query = normalized_query.replace(" ", "_")
     return CACHE_DIR / f"{safe_query}.json"
-
-
-def scrape_website(url: str) -> dict[str, Any]:
-    if not url:
-        raise ValueError('Missing "url" value.')
-
-    run_input = {
-        "aggressivePrune": True,
-        "blockMedia": True,
-        "clickElementsCssSelector": '[aria-expanded="false"]',
-        "clientSideMinChangePercentage": 15,
-        "crawlerType": "playwright:adaptive",
-        "debugLog": False,
-        "debugMode": False,
-        "dynamicContentWaitSecs": 2,
-        "expandIframes": True,
-        "ignoreCanonicalUrl": False,
-        "ignoreHttpsErrors": False,
-        "keepUrlFragments": False,
-        "maxCrawlDepth": 5,
-        "maxCrawlPages": 10,
-        "proxyConfiguration": {
-            "useApifyProxy": True,
-            "apifyProxyGroups": ["RESIDENTIAL"],
-        },
-        "readableTextCharThreshold": 100,
-        "removeCookieWarnings": True,
-        "removeElementsCssSelector": 'nav, footer, script, style, noscript, svg, img[src^=\'data:\'],\n[role="alert"],\n[role="banner"],\n[role="dialog"],\n[role="alertdialog"],\n[role="region"][aria-label*="skip" i],\n[aria-modal="true"]',
-        "renderingTypeDetectionPercentage": 10,
-        "respectRobotsTxtFile": True,
-        "reuseStoredDetectionResults": False,
-        "saveFiles": False,
-        "saveHtml": False,
-        "saveHtmlAsFile": False,
-        "saveMarkdown": True,
-        "saveScreenshots": False,
-        "signHttpRequests": False,
-        "startUrls": [{"url": url}],
-        "storeSkippedUrls": False,
-        "useLlmsTxt": True,
-        "useSitemaps": False,
-    }
-
-    Actor.log.info(f"Scraping website content from {url}")
-    run = apify_client.actor("apify/website-content-crawler").call(run_input=run_input)
-    dataset = apify_client.dataset(run["defaultDatasetId"])
-    items = dataset.list_items().items
-
-    return items[0]
 
 
 def fetch_search_result(search_query: str) -> SearchResult:
@@ -673,112 +635,51 @@ def get_source_urls(
     return classified
 
 
-def _normalize_generated_queries(
-    queries: List[str], url: str, query_count: int = GENERATED_QUERY_COUNT
-) -> List[str]:
-    normalized: list[str] = []
-    seen: set[str] = set()
+def generate_pr_blueprint(
+    url: str,
+    business_profile: BusinessProfile,
+    visibility_score: VisibilityScore,
+    mentions_by_domain: List[DomainMentions],
+    sources: List[SourceUrl],
+    competitor_rankings: List[CompetitorRanking],
+    queries: List[str],
+) -> PRBlueprint:
+    Actor.log.info("Generating travel PR blueprint from cited source intelligence")
 
-    for query in queries:
-        candidate = " ".join((query or "").strip().split())
-        key = candidate.lower()
-        if not candidate or key in seen:
-            continue
-        seen.add(key)
-        normalized.append(candidate)
-
-    domain = to_registrable_domain(url) or "this product"
-    fallback_queries = [
-        f"best {domain} alternatives",
-        f"top tools like {domain}",
-        f"{domain} competitors",
-        f"{domain} pricing alternatives",
-        f"best tools for teams like {domain}",
-        f"compare {domain} vs competitors",
-        f"enterprise alternatives to {domain}",
-        f"best platforms similar to {domain}",
-        f"{domain} use cases for businesses",
-        f"which tool is better than {domain}",
+    top_cited_sources = [domain.domain for domain in mentions_by_domain[:10]]
+    top_source_rows = [
+        {
+            "url": source.url,
+            "domain": source.domain,
+            "category": source.category,
+            "mentions": source.mentions,
+        }
+        for source in sorted(sources, key=lambda item: item.mentions, reverse=True)[:20]
     ]
 
-    for fallback_query in fallback_queries:
-        if len(normalized) >= query_count:
-            break
-        key = fallback_query.lower()
-        if key in seen:
-            continue
-        seen.add(key)
-        normalized.append(fallback_query)
+    ranking_snapshot = [
+        {
+            "query": item.search_query,
+            "competitors": [
+                {
+                    "name": competitor.name,
+                    "website": competitor.website,
+                    "ranking": competitor.ranking.model_dump(),
+                }
+                for competitor in item.competitors[:8]
+            ],
+        }
+        for item in competitor_rankings[:12]
+    ]
 
-    return normalized[:query_count]
-
-
-def _normalize_input_queries(queries: Optional[List[str]]) -> List[str]:
-    if not queries:
-        return []
-
-    normalized: list[str] = []
-    seen: set[str] = set()
-    for query in queries:
-        candidate = " ".join((query or "").strip().split())
-        key = candidate.lower()
-        if not candidate or key in seen:
-            continue
-        seen.add(key)
-        normalized.append(candidate)
-
-    return normalized
-
-
-def discover_query_context(
-    url: str, llms_txt_analysis: LLMsTxtAnalysis
-) -> tuple[str, str, List[str]]:
-    summary = llms_txt_analysis.summary
-    if summary.name.lower() != "unknown" or summary.urls:
-        context = (
-            f"Product: {summary.name}\n"
-            f"Description: {summary.description}\n"
-            f"Industry hints: derived from llms.txt summary"
-        )
-        return "llms.txt", context, summary.urls
-
-    try:
-        website_content = scrape_website(url)
-        markdown = (website_content.get("markdown") or "").strip()
-        text_excerpt = "\n".join(markdown.splitlines()[:40])
-        crawl_context = (
-            "Product and industry inferred from homepage crawl content.\n"
-            f"Crawl excerpt:\n{text_excerpt[:4000]}"
-        )
-        crawl_url = website_content.get("url") or url
-        return "website_crawl", crawl_context, [crawl_url]
-    except Exception as error:
-        Actor.log.warning(f"Website crawl fallback failed: {error}")
-
-    fallback_context = (
-        "Could not retrieve llms.txt or crawl data. "
-        "Infer product and industry from the brand URL only."
-    )
-    return "url_only", fallback_context, [url]
-
-
-def generate_search_queries(
-    url: str,
-    discovery_source: str,
-    discovery_context: str,
-    supporting_urls: List[str],
-    query_count: int = GENERATED_QUERY_COUNT,
-) -> List[str]:
-    Actor.log.info(
-        f"Generating {query_count} search queries using discovery source: {discovery_source}"
-    )
-
-    prompt = QUERY_GENERATION_PROMPT_TEMPLATE.format(
+    prompt = PR_BLUEPRINT_PROMPT_TEMPLATE.format(
         url=url,
-        query_count=query_count,
-        discovery_source=discovery_source,
-        discovery_context=discovery_context,
-        supporting_urls="\n".join(supporting_urls) if supporting_urls else "N/A",
+        business_profile=business_profile.model_dump_json(indent=2),
+        visibility_score=visibility_score.model_dump_json(indent=2),
+        top_cited_sources=json.dumps(top_cited_sources, indent=2),
+        top_source_rows=json.dumps(top_source_rows, indent=2),
+        ranking_snapshot=json.dumps(ranking_snapshot, indent=2),
+        traveler_queries=json.dumps(queries, indent=2),
     )
 
     try:
@@ -787,33 +688,49 @@ def generate_search_queries(
             contents=prompt,
             config=GenerateContentConfig(
                 response_mime_type="application/json",
-                response_json_schema=GeneratedQueries.model_json_schema(),
+                response_json_schema=PRBlueprint.model_json_schema(),
+                thinking_config=ThinkingConfig(thinking_level=ThinkingLevel.HIGH),
             ),
         )
 
         if not response.text:
-            raise RuntimeError("Gemini query generation returned no text.")
+            raise RuntimeError("Gemini PR blueprint generation returned no text.")
 
-        generated = GeneratedQueries.model_validate_json(response.text)
-        normalized = _normalize_generated_queries(generated.queries, url, query_count)
-        if len(normalized) < query_count:
-            Actor.log.warning(
-                f"Generated only {len(normalized)} unique queries; filling with fallback variants"
-            )
-        return _normalize_generated_queries(normalized, url, query_count)
+        return PRBlueprint.model_validate_json(response.text)
     except Exception as error:
-        Actor.log.warning(f"Failed to generate queries with Gemini: {error}")
-        return _normalize_generated_queries([], url, query_count)
+        Actor.log.warning(f"Failed to generate PR blueprint with Gemini: {error}")
+        fallback_action = PRBlueprintAction(
+            priority="high",
+            action="Publish itinerary-focused landing pages for your core offers",
+            why_it_matters=(
+                "AI assistants cite structured local guides when building itineraries."
+            ),
+            story_angle=(
+                "Position your business as a must-include stop in multi-day city itineraries."
+            ),
+            target_sources=top_cited_sources[:3],
+            expected_outcome="Increased inclusion rate in itinerary-style AI answers",
+        )
+        return PRBlueprint(
+            narrative=(
+                "LLM citation coverage is concentrated on a small set of domains. "
+                "Expand third-party mentions and structured itinerary content to improve AI inclusion."
+            ),
+            top_cited_sources=top_cited_sources,
+            actions=[fallback_action],
+        )
 
 
 class Report(BaseModel):
+    business_profile: BusinessProfile
     llms_txt_analysis: LLMsTxtAnalysis
     sources_analysis: SourcesAnalysis
     competitor_rankings: List[CompetitorRanking]
     visibility_score: VisibilityScore
+    pr_blueprint: PRBlueprint
     queries: List[str]
-    query_source: str
-    discovery_source: str
+    query_source: Optional[str] = None
+    discovery_source: Optional[str] = None
 
 
 async def main() -> None:
@@ -825,10 +742,11 @@ async def main() -> None:
         actor_input = ActorInput.model_validate(await Actor.get_input() or {})
 
         url = actor_input.url
-        input_search_queries = _normalize_input_queries(actor_input.search_queries)
+        business_profile = actor_input.business_profile
+        search_queries = actor_input.search_queries
 
         Actor.log.info(
-            f"Actor input received: url={url}, search_queries_count={len(input_search_queries)}"
+            f"Actor input received: url={url}, search_queries_count={len(search_queries)}"
         )
 
         # ANALYZE LLMS.TXT
@@ -840,36 +758,12 @@ async def main() -> None:
             f"Recommendations: {', '.join(llms_txt_analysis.gap_analysis.recommendations)}"
         )
 
-        query_source = "input"
-        discovery_source = "n/a"
-        search_queries = input_search_queries
-
-        if search_queries:
-            Actor.log.info(
-                f"Using {len(search_queries)} user-provided search queries from input"
-            )
-        else:
-            query_source = "generated"
-            discovery_source, discovery_context, supporting_urls = (
-                discover_query_context(
-                    url=url,
-                    llms_txt_analysis=llms_txt_analysis,
-                )
-            )
-            Actor.log.info(
-                f"Discovery source used for query generation: {discovery_source}"
-            )
-
-            search_queries = generate_search_queries(
-                url=url,
-                discovery_source=discovery_source,
-                discovery_context=discovery_context,
-                supporting_urls=supporting_urls,
-                query_count=GENERATED_QUERY_COUNT,
-            )
-            Actor.log.info(
-                f"Generated {len(search_queries)} search queries: {search_queries}"
-            )
+        query_source = actor_input.query_source or "upstream"
+        discovery_source = actor_input.discovery_source or "upstream"
+        Actor.log.info(
+            "Using upstream-generated business profile and search queries "
+            f"(query_source={query_source}, discovery_source={discovery_source})"
+        )
 
         search_results: list[SearchResult] = []
         competitor_rankings: list[CompetitorRanking] = []
@@ -915,7 +809,23 @@ async def main() -> None:
             for domain, mentions in mentions_counter.most_common()
         ]
 
+        pr_blueprint = generate_pr_blueprint(
+            url=url,
+            business_profile=business_profile,
+            visibility_score=visibility_score,
+            mentions_by_domain=mentions_by_domain,
+            sources=sources,
+            competitor_rankings=competitor_rankings,
+            queries=search_queries,
+        )
+        Actor.log.info(
+            "Generated PR blueprint with "
+            f"{len(pr_blueprint.actions)} actions and "
+            f"{len(pr_blueprint.top_cited_sources)} cited source domains"
+        )
+
         report = Report(
+            business_profile=business_profile,
             llms_txt_analysis=llms_txt_analysis,
             sources_analysis=SourcesAnalysis(
                 mentions_by_domain=mentions_by_domain,
@@ -923,6 +833,7 @@ async def main() -> None:
             ),
             competitor_rankings=competitor_rankings,
             visibility_score=visibility_score,
+            pr_blueprint=pr_blueprint,
             queries=search_queries,
             query_source=query_source,
             discovery_source=discovery_source,
@@ -931,10 +842,3 @@ async def main() -> None:
         report_path = Path("report.json")
         report_path.write_text(report.model_dump_json(indent=2), encoding="utf-8")
         Actor.log.info(f"Report saved to {report_path.resolve()}")
-
-        # mentions_by_domain: Counter[str] = Counter()
-        # for source in sources:
-        #     mentions_by_domain[source.domain] += source.mentions
-
-        # for domain, mentions in mentions_by_domain.most_common():
-        #     Actor.log.info(f"{domain}: {mentions}")

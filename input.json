@@ -1,3 +1,26 @@
 {
-  "url": "https://www.apify.com/"
+  "url": "https://www.apify.com/",
+  "business_profile": {
+    "business_name": "Apify",
+    "business_type": "local_experience",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "traveler_personas": ["Tech-savvy travelers", "Business travelers"],
+    "signature_offers": [
+      "Web scraping automation platform",
+      "Ready-made actor marketplace"
+    ],
+    "strengths": [
+      "Strong developer ecosystem",
+      "Reliable automation infrastructure"
+    ],
+    "gaps": ["Limited explicit travel itinerary positioning"]
+  },
+  "search_queries": [
+    "best 3-day itinerary in prague for tech and startup culture",
+    "weekend itinerary in prague with modern museums and local food",
+    "business traveler prague itinerary near innovation hubs"
+  ],
+  "query_source": "generated",
+  "discovery_source": "llms.txt"
 }
