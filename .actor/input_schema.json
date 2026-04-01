@@ -58,6 +58,8 @@
           "enum": [
             "hotel",
             "restaurant",
+            "cafe",
+            "coworking_space",
             "museum",
             "local_experience",
             "mixed_hospitality",
@@ -66,6 +68,8 @@
           "enumTitles": [
             "Hotel",
             "Restaurant",
+            "Cafe",
+            "Coworking Space",
             "Museum",
             "Local Experience",
             "Mixed Hospitality",

@@ -261,6 +261,8 @@ class BusinessProfile(BaseModel):
     business_type: Literal[
         "hotel",
         "restaurant",
+        "cafe",
+        "coworking_space",
         "museum",
         "local_experience",
         "mixed_hospitality",
