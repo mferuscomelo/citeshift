@@ -2,33 +2,29 @@
 
 Submission for the [GenAI Zurich 2026 Hackathon](https://genaizurich.devpost.com/) - Apify Challenge.
 
-## The Problem: If You Are Not In The Itinerary, You Do Not Exist
+## The Problem: Your Business Is Becoming Invisible
 
-For twenty years, digital visibility meant one thing: ranking in the top ten blue links of search engines. We built an entire industry (Search Engine Optimization, aka SEO) around tracking, measuring, and optimizing for these clicks.
+For twenty years, digital visibility meant one thing: ranking in the top ten blue links of search engines. We built an entire industry (Search Engine Optimization, aka SEO) around tracking, measuring, and optimizing for these clicks. 
 
-That era is over.
+That era is over. 
 
-Today, travelers are not searching ten blue links. They are asking ChatGPT, Perplexity, and Google AI Overviews for personalized weekend and 3-day itineraries. For hotels, restaurants, museums, and local experiences, missing a generated itinerary means losing the booking entirely.
-
-The shift from search engines to AI travel planning is happening now, but most visibility tooling is still SEO-first. Hospitality brands are flying blind: they cannot see which sources AI assistants cite, why competitors are selected, or what to publish to become recommendation-worthy.
+Today, users aren't clicking links; they are asking ChatGPT, Perplexity, and Google AI Overviews. The shift from search engines to AI answers is happening at breakneck speed, but the tooling hasn't caught up. Businesses are suddenly flying blind. Traditional rankings are no longer transparent, traffic is dropping, and even companies with phenomenal products are losing their visibility because they don't know how to track or optimize for LLM-driven answers.
 
 This shift is already measurable:
 
 * In 2024, **58.5% of U.S. Google searches** and **59.7% of EU Google searches** ended without a click. Source: [SparkToro + Datos (2024)](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/).
 * For every 1,000 Google searches, only **360 clicks (U.S.)** and **374 clicks (EU)** reached the open web. Source: [SparkToro + Datos (2024)](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/).
-* In Google's own launch update, AI Overviews had already been used **billions of times** in Search Labs and were expected to reach **over 1 billion users** by the end of 2024. Source: [Google Search announcement (May 2024)](https://blog.google/products/search/generative-ai-google-search-may-2024/).
+* In Google's own launch update, AI Overviews had already been used **billions of times** in Search Labs, fundamentally altering top-of-funnel discovery. Source: [Google Search announcement (May 2024)](https://blog.google/products/search/generative-ai-google-search-may-2024/).
 
-I built CiteShift because I have 6+ years of experience as a full-stack web developer and SEO analyst, helping clients improve their web presence. I have seen this transition firsthand: even well-executed SEO programs are losing visibility when brands are not represented in AI-generated answers.
+With 6+ years of experience as a full-stack web developer and SEO analyst, I have seen this transition firsthand. Even well-executed SEO programs are collapsing when brands are not represented in AI-generated answers.
 
-If your company isn't mentioned when a user asks an AI, you no longer exist in their buying journey.
+For the $10 Trillion Travel & Hospitality industry, this is an existential threat. Travelers no longer search for "best hotel zurich", they ask ChatGPT to "Build a 3-day weekend itinerary." If an AI doesn't include your local business in that itinerary, to the tourist, you simply no longer exist in their buying journey. 
 
-## The Solution: Upstream Profile Creation + Citation-Led PR Blueprint
+## The Solution: A New Category of Intelligence
 
-CiteShift helps travel and hospitality businesses understand, measure, and improve how they appear in AI-generated itineraries. Profile inference and traveler prompt generation are now handled by a dedicated upstream actor (`citeshift-profile-creator`), while CiteShift focuses on multi-engine analysis, citation intelligence, and PR recommendations.
+CiteShift helps businesses understand, measure, and improve how they appear in AI-generated itineraries. Instead of tracking outdated keyword positions, CiteShift introduces the Visibility Score: a unified, cross-engine metric that measures exactly how prominently your brand appears across the AI ecosystem. 
 
-This split architecture keeps business-profile generation reusable and makes CiteShift deterministic: it works from structured upstream payloads and produces actionable visibility intelligence.
-
-![CiteShift dashboard](assets/screenshots/dashboard.png)
+![CiteShift dashboard](/assets/screenshots/dashboard.png)
 
 It provides competitive intelligence, source-level tracking, and actionable recommendations to help you engineer your presence in the LLMs of tomorrow.
 
@@ -36,32 +32,33 @@ It provides competitive intelligence, source-level tracking, and actionable reco
 
 The **Citations** view breaks down exactly which domains are cited in AI answers and classifies them as Owned, Operated, or Earned sources, so teams can understand where authority is really coming from.
 
-![CiteShift citations](assets/screenshots/citations.png)
+![CiteShift citations](/assets/screenshots/citations.png)
 
 The **History** view turns weekly scans into a longitudinal record of ranking movement and score shifts, helping teams measure the impact of content and GEO changes.
 
-![CiteShift history](assets/screenshots/history.png)
+![CiteShift history](/assets/screenshots/history.png)
 
 The **llms.txt Analysis** view evaluates LLM-readiness directly, highlights context gaps, and generates prioritized recommendations to improve machine-readable brand context.
 
-![CiteShift llms.txt analysis](assets/screenshots/llms-txt.png)
+![CiteShift llms.txt analysis](/assets/screenshots/llms-txt.png)
 
 The **Share of Voice** view compares your visibility with direct competitors and shows trend lines over time, making it easy to spot who is gaining AI mindshare in your category.
 
-![CiteShift share of voice](assets/screenshots/share-of-voice.png)
+![CiteShift share of voice](/assets/screenshots/share-of-voice.png)
 
 ### How It Works
 
-1. **Input:** You provide structured payload generated by `citeshift-profile-creator` (`url`, `business_profile`, and `search_queries`).
-2. **Cross-LLM Collection:** CiteShift gathers AI-generated responses from Google AI mode, Perplexity, and ChatGPT search integrations via Apify Actors.
-3. **Citation and Competitor Analysis:** It extracts competitors, ranking positions, and the exact domains cited by the models.
-4. **Visibility Scoring:** CiteShift computes overall and per-engine visibility.
-5. **PR Blueprint Generation:** Based on citation gaps and source patterns, it outputs a prioritized PR action plan designed to increase itinerary inclusion.
-6. **Insights Delivery:** The final report combines upstream business profile context with source intelligence and execution-ready recommendations.
+1. **Zero-Click Input:** You enter your company URL. That's it. No manual keyword guessing.
+2. **Dynamic Persona Generation:** Gemini 3.1 Flash Lite automatically reads your site, determines your business "vibe", and simulates real traveler personas to generate the exact conversational prompts tourists are using today (e.g., "Where can I grab a quick, authentic lunch near Puls 5?").
+2. **Data Collection:** CiteShift deploys Apify Actors to query ChatGPT, Perplexity, and Google AI Overviews, extracting the full AI-generated itineraries and citation links.
+3. **AI Analysis:** Gemini acts as the reasoning engine to extract competitors, evaluate ranking positions per query, and cross-reference mentions across all engines.
+4. **Scoring:** CiteShift calculates the Visibility Score for you and your competitors.
+5. **Source & llms.txt Analysis:** The system maps the exact URLs driving the AI answers and checks your domain’s `/llms.txt` file for LLM-readiness.
+6. **Insights Delivery:** A structured report and visual dashboard present the intelligence, showing exactly where you are losing out and how to fix it.
 
 ### Technical Architecture
 
-CiteShift requires a robust pipeline capable of bridging unstructured web data with precise, structured reasoning.
+CiteShift requires a robust pipeline capable of bridging unstructured web data with precise, structured reasoning. 
 
 * **Data Collection Layer (Apify):** We use Apify Actors (`apify/google-search-scraper` and `apify/website-content-crawler`) for collecting AI-generated answers from search-integrated LLM systems. This captures the full answer text, cited sources, and query context.
 * **Intelligence Layer:** We leverage Gemini 3.1 Flash Lite as our core reasoning engine. It ingests the raw AI outputs, performs competitor identification, ranks them per query/engine, and aggregates cross-query intelligence.
@@ -78,17 +75,16 @@ This exposed a critical visibility vulnerability and triggered a direct discussi
 
 ## What Makes CiteShift Unique
 
-* **Composable Architecture:** Profile creation is isolated in `citeshift-profile-creator`, while CiteShift specializes in analysis and strategy.
-* **The Visibility Score:** We are replacing traditional keyword rankings with a metric tuned for itinerary-era AI visibility.
+* **The Only Brick-and-Mortar GEO Platform:** While existing enterprise GEO tools focus exclusively on B2B software and e-commerce, CiteShift is the first and only platform built specifically for physical, local businesses. We measure spatial, real-world itineraries, not just digital mentions.
+* **The Visibility Score:** We are replacing traditional keyword rankings with the first unified metric designed explicitly for AI-era visibility.
 * **Multi-LLM Analysis:** We don't just look at one engine. We aggregate ChatGPT, Perplexity, and Google AI.
-* **Source-Level Intelligence:** We don't just tell you if you were mentioned; we track why. We identify the exact Owned, Operated, and Earned URLs driving itinerary answers.
-* **PR Blueprint:** We convert citation patterns into an actionable travel PR plan with clear priorities and story angles.
+* **Source-Level Intelligence:** We don't just tell you if you were mentioned; we track why. We identify the exact Owned, Operated, and Earned URLs driving the LLM's output.
 * **Automated llms.txt Evaluation:** CiteShift automatically fetches your `/llms.txt` file. Gemini summarizes the content, scores it (0–100), identifies critical context gaps, and gives recommendations. If you don't have one, CiteShift flags it as a high-priority technical GEO vulnerability.
-* **Actionable Insights:** We don't just output data; we output strategy.
+* **Actionable Insights:** We don't just output data; we output strategy. 
 
 ## Challenges & Learnings
 
-Building a deterministic metric out of probabilistic outputs is incredibly difficult.
+Building a deterministic metric out of probabilistic outputs is incredibly difficult. 
 
 * **Extracting Structured Data:** Normalizing inconsistent, conversational outputs from various LLM architectures into a strict, analyzable schema.
 * **Source Attribution:** LLMs cite sources in drastically different ways (inline brackets, footnotes, raw links). Standardizing this data required intensive tuning.
@@ -96,14 +92,15 @@ Building a deterministic metric out of probabilistic outputs is incredibly diffi
 
 ## Future Vision
 
-CiteShift is just getting started. This hackathon project is the MVP of what could become a full-scale B2B SaaS platform.
+CiteShift is just getting started. This hackathon project is the MVP of what will become a full-scale B2B SaaS platform.
 
 Our roadmap includes:
 
 * **Continuous Monitoring:** Tracking AI visibility over time.
 * **Automated Alerts:** Slack/Email notifications when your Visibility Score drops or a competitor overtakes you in a high-value query.
 * **GEO Tooling:** Real-time recommendations for tweaking landing page copy specifically for LLM ingestion.
-* **Full SaaS Dashboard:** A fully interactive web application for marketing teams to track their Generative Engine Optimization.
+
+In the future, entire cities and Destination Marketing Organizations (DMOs) could use CiteShift to analyze how their cities are being portrayed by LLMs. Instead of AI autonomously funneling millions of tourists to the exact same saturated landmarks (like the Eiffel Tower), cities can use CiteShift to engineer the AI's brain, injecting hidden gems into AI itineraries to improve crowd congestion and distribute economic value to local neighborhoods.
 
 ### Built With
 
@@ -117,69 +114,7 @@ Our roadmap includes:
 
 This project would not have been possible without the support, feedback, and insights from GenAI Zurich mentors and the Apify team.
 
-* Benjamin Fuchs (AI Automation Specialist)
-* Dušan Vystrčil (AI Product Manager @ Apify)
-* Aleš Wilk and Kateryna Shvets (Marketing @ Apify)
-* Pascal Vetter (AI Ecosystem Enabler @ AI Startup Center Zürich)
-
-## Get Started
-
-Run CiteShift locally in a few steps.
-
-### 1. Install dependencies
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2. Configure environment variables
-
-Copy the example file and fill in your API credentials:
-
-```bash
-cp .env.example .env
-```
-
-Then edit `.env` and set your values:
-
-```env
-APIFY_TOKEN=your_apify_token
-GEMINI_API_KEY=your_gemini_api_key
-USE_CACHE=false
-```
-
-### 3. Change the actor input
-
-Edit [input.json](input.json) with payload from the profile creator actor:
-
-```json
-{
-  "url": "https://your-domain.com/",
-  "business_profile": {
-    "business_name": "Your Brand",
-    "business_type": "hotel",
-    "traveler_personas": ["couples", "families"],
-    "signature_offers": [],
-    "strengths": [],
-    "gaps": []
-  },
-  "search_queries": [
-    "best 3-day itinerary in lisbon for food and culture",
-    "where should couples stay in lisbon for a weekend"
-  ]
-}
-```
-
-### 4. Run the actor locally
-
-```bash
-apify run --input-file input.json
-```
-
-### 5. Review output
-
-After a run, the actor writes the final analysis to [report.json](report.json).
-
-This repository already includes a test report at [report.json](report.json), generated from sample URL input in [input.json](input.json), so you can review the expected output structure immediately.
+- Benjamin Fuchs (AI Automation Specialist)
+- Dušan Vystrčil (AI Product Manager @ Apify)
+- Aleš Wilk and Kateryna Shvets (Marketing @ Apify)
+- Pascal Vetter (AI Ecosystem Enabler @ AI Startup Center Zürich)
