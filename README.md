@@ -24,7 +24,7 @@ For the $10 Trillion Travel & Hospitality industry, this is an existential threa
 
 CiteShift helps businesses understand, measure, and improve how they appear in AI-generated itineraries. Instead of tracking outdated keyword positions, CiteShift introduces the Visibility Score: a unified, cross-engine metric that measures exactly how prominently your brand appears across the AI ecosystem. 
 
-![CiteShift dashboard](/assets/screenshots/dashboard.png)
+![CiteShift dashboard](/assets/screenshots/dashboard-v2.png)
 
 It provides competitive intelligence, source-level tracking, and actionable recommendations to help you engineer your presence in the LLMs of tomorrow.
 
@@ -32,19 +32,19 @@ It provides competitive intelligence, source-level tracking, and actionable reco
 
 The **Citations** view breaks down exactly which domains are cited in AI answers and classifies them as Owned, Operated, or Earned sources, so teams can understand where authority is really coming from.
 
-![CiteShift citations](/assets/screenshots/citations.png)
+![CiteShift citations](/assets/screenshots/citations-v2.png)
 
 The **History** view turns weekly scans into a longitudinal record of ranking movement and score shifts, helping teams measure the impact of content and GEO changes.
 
-![CiteShift history](/assets/screenshots/history.png)
+![CiteShift history](/assets/screenshots/history-v2.png)
 
 The **llms.txt Analysis** view evaluates LLM-readiness directly, highlights context gaps, and generates prioritized recommendations to improve machine-readable brand context.
 
-![CiteShift llms.txt analysis](/assets/screenshots/llms-txt.png)
+![CiteShift llms.txt analysis](/assets/screenshots/llms-txt-v2.png)
 
 The **Share of Voice** view compares your visibility with direct competitors and shows trend lines over time, making it easy to spot who is gaining AI mindshare in your category.
 
-![CiteShift share of voice](/assets/screenshots/share-of-voice.png)
+![CiteShift share of voice](/assets/screenshots/share-of-voice-v2.png)
 
 ### How It Works
 
